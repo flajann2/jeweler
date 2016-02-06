@@ -1,4 +1,4 @@
-class Jeweler
+class Juwelier
   module Commands
     class ReleaseToRubygems
       include FileUtils
@@ -15,12 +15,12 @@ class Jeweler
         sh command
       end
 
-      def self.build_for(jeweler)
+      def self.build_for(juwelier)
         command = new
-        command.gemspec        = jeweler.gemspec
-        command.gemspec_helper = jeweler.gemspec_helper
-        command.version        = jeweler.version
-        command.output         = jeweler.output
+        command.gemspec        = juwelier.gemspec
+        command.gemspec_helper = juwelier.gemspec_helper
+        command.version        = juwelier.version
+        command.output         = juwelier.output
         command
       end
     end

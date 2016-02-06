@@ -1,4 +1,4 @@
-class Jeweler
+class Juwelier
   module Commands
     class InstallGem
       include FileUtils
@@ -20,10 +20,10 @@ class Jeweler
         "#{RbConfig::CONFIG['RUBY_INSTALL_NAME']} -S gem"
       end
 
-      def self.build_for(jeweler)
+      def self.build_for(juwelier)
         command = new
-        command.output = jeweler.output
-        command.gemspec_helper = jeweler.gemspec_helper
+        command.output = juwelier.output
+        command.gemspec_helper = juwelier.gemspec_helper
         command
       end
     end

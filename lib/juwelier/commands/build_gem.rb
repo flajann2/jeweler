@@ -1,4 +1,4 @@
-class Jeweler
+class Juwelier
   module Commands
     class BuildGem
       attr_accessor :base_dir, :gemspec_helper, :file_utils, :version_helper

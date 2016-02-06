@@ -1,6 +1,6 @@
 require 'pathname'
 
-class Jeweler
+class Juwelier
   module Commands
     class ReleaseGemspec
       attr_accessor :gemspec, :version, :repo, :output, :gemspec_helper, :base_dir
@@ -56,7 +56,7 @@ class Jeweler
       end
 
       def gemspec_helper
-        @gemspec_helper ||= Jeweler::GemSpecHelper.new(self.gemspec, self.base_dir)
+        @gemspec_helper ||= Juwelier::GemSpecHelper.new(self.gemspec, self.base_dir)
       end
 
       def working_subdir
@@ -70,15 +70,15 @@ class Jeweler
         Pathname.new(base_dir).realpath
       end
 
-      def self.build_for(jeweler)
+      def self.build_for(juwelier)
         command = self.new
 
-        command.base_dir = jeweler.base_dir
-        command.gemspec = jeweler.gemspec
-        command.version = jeweler.version
-        command.repo = jeweler.repo
-        command.output = jeweler.output
-        command.gemspec_helper = jeweler.gemspec_helper
+        command.base_dir = juwelier.base_dir
+        command.gemspec = juwelier.gemspec
+        command.version = juwelier.version
+        command.repo = juwelier.repo
+        command.output = juwelier.output
+        command.gemspec_helper = juwelier.gemspec_helper
 
         command
       end

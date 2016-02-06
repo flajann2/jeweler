@@ -1,4 +1,4 @@
-class Jeweler
+class Juwelier
   module Commands
     class ReleaseToGit
       attr_accessor :gemspec, :version, :repo, :output, :gemspec_helper, :base_dir
@@ -47,15 +47,15 @@ class Jeweler
         tag.nil?
       end
 
-      def self.build_for(jeweler)
+      def self.build_for(juwelier)
         command = self.new
 
-        command.base_dir = jeweler.base_dir
-        command.gemspec = jeweler.gemspec
-        command.version = jeweler.version
-        command.repo = jeweler.repo
-        command.output = jeweler.output
-        command.gemspec_helper = jeweler.gemspec_helper
+        command.base_dir = juwelier.base_dir
+        command.gemspec = juwelier.gemspec
+        command.version = juwelier.version
+        command.repo = juwelier.repo
+        command.output = juwelier.output
+        command.gemspec_helper = juwelier.gemspec_helper
 
         command
       end

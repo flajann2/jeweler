@@ -1,6 +1,6 @@
 require 'pathname'
 
-class Jeweler
+class Juwelier
   module Commands
     module Version
       class Base
@@ -39,13 +39,13 @@ class Jeweler
         end
 
 
-        def self.build_for(jeweler)
+        def self.build_for(juwelier)
           command = new
-          command.repo = jeweler.repo
-          command.version_helper = jeweler.version_helper
-          command.gemspec = jeweler.gemspec
-          command.commit = jeweler.commit
-          command.base_dir = jeweler.base_dir
+          command.repo = juwelier.repo
+          command.version_helper = juwelier.version_helper
+          command.gemspec = juwelier.gemspec
+          command.commit = juwelier.commit
+          command.base_dir = juwelier.base_dir
 
           command
         end

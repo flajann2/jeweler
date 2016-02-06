@@ -1,4 +1,4 @@
-class Jeweler
+class Juwelier
   module Commands
     class ValidateGemspec
       attr_accessor :gemspec_helper, :output
@@ -17,11 +17,11 @@ class Jeweler
         end
       end
 
-      def self.build_for(jeweler)
+      def self.build_for(juwelier)
         command = new
 
-        command.gemspec_helper = jeweler.gemspec_helper
-        command.output = jeweler.output
+        command.gemspec_helper = juwelier.gemspec_helper
+        command.output = juwelier.output
 
         command
       end

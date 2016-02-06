@@ -1,4 +1,4 @@
-class Jeweler
+class Juwelier
   module Commands
     module Version
       class Write < Base

@@ -1,4 +1,4 @@
-class Jeweler
+class Juwelier
   module Commands
     class CheckDependencies
       class MissingDependenciesError < RuntimeError
