@@ -20,8 +20,8 @@ class TestOptions < Test::Unit::TestCase
   end
 
   def setup_options(*arguments)
-    stub(Jeweler::Generator::Options).git_config { valid_git_config }
-    @options = Jeweler::Generator::Options.new(["project_name"] + arguments)
+    stub(Juwelier::Generator::Options).git_config { valid_git_config }
+    @options = Juwelier::Generator::Options.new(["project_name"] + arguments)
   end
 
   def self.for_options(*options)
@@ -212,15 +212,15 @@ class TestOptions < Test::Unit::TestCase
 
   context "merging options" do
     should "take options from each" do
-      options = Jeweler::Generator::Options.new(["--rspec"]).
-        merge Jeweler::Generator::Options.new(["--create-repo"])
+      options = Juwelier::Generator::Options.new(["--rspec"]).
+        merge Juwelier::Generator::Options.new(["--create-repo"])
       assert_equal :rspec, options[:testing_framework]
       assert options[:create_repo]
     end
 
     should "shadow options" do
-      options = Jeweler::Generator::Options.new(["--bacon"]).
-        merge Jeweler::Generator::Options.new(["--rspec"])
+      options = Juwelier::Generator::Options.new(["--bacon"]).
+        merge Juwelier::Generator::Options.new(["--rspec"])
       assert_equal :rspec, options[:testing_framework]
     end
   end

@@ -1,5 +1,5 @@
 require 'juwelier'
-Jeweler::Tasks.new do |gem|
+Juwelier::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
   gem.name = "<%= project_name %>"
   gem.homepage = "<%= homepage %>"
@@ -23,9 +23,9 @@ Jeweler::Tasks.new do |gem|
 <% end %>
 <% end %>
 end
-Jeweler::RubygemsDotOrgTasks.new
+Juwelier::RubygemsDotOrgTasks.new
 <% if should_setup_rubyforge %>
-Jeweler::RubyforgeTasks.new do |rubyforge|
+Juwelier::RubyforgeTasks.new do |rubyforge|
   rubyforge.doc_task = "<%= doc_task %>"
 end
 <% end %>

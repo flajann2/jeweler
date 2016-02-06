@@ -6,15 +6,15 @@ After do
   @working_dir.destroy! if @working_dir
 end
 
-Given /^I use the jeweler command to generate the "([^"]+)" project in the working directory$/ do |name|
+Given /^I use the juwelier command to generate the "([^"]+)" project in the working directory$/ do |name|
   @name = name
 
   return_to = Dir.pwd
-  path_to_jeweler = File.expand_path File.join(File.dirname(__FILE__), '..', '..', 'bin', 'jeweler')
+  path_to_juwelier = File.expand_path File.join(File.dirname(__FILE__), '..', '..', 'bin', 'juwelier')
 
   begin
     FileUtils.cd @working_dir
-    @stdout = `#{path_to_jeweler} #{@name}`
+    @stdout = `#{path_to_juwelier} #{@name}`
   ensure
     FileUtils.cd return_to
   end

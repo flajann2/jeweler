@@ -65,8 +65,8 @@ Given /^I have configured git sanely$/ do
           'github.user' => @github_user})
 end
 
-Given /^I set JEWELER_OPTS env variable to "(.*)"$/ do |val|
-  ENV['JEWELER_OPTS'] = val
+Given /^I set JUWELIER_OPTS env variable to "(.*)"$/ do |val|
+  ENV['JUWELIER_OPTS'] = val
 end
 
 When /^I generate a (.*)project named '((?:\w|-|_)+)' that is '([^']*)'$/ do |testing_framework, name, summary|
@@ -101,7 +101,7 @@ When /^I generate a (.*)project named '((?:\w|-|_)+)' that is '([^']*)' and desc
 
 
   @stdout = OutputCatcher.catch_out do
-    Jeweler::Generator::Application.run! *arguments
+    Juwelier::Generator::Application.run! *arguments
   end
 
   @repo = Git.open(File.join(@working_dir, @name))
@@ -158,16 +158,16 @@ Then /^Rakefile has '(.*)' for the (.*) (.*)$/ do |value, task_class, field|
   assert_match /#{block_variable}\.#{field} = (%Q\{|"|')#{Regexp.escape(value)}(\}|"|')/, task_block
 end
 
-Then /^Rakefile adds '(.*)' as a development dependency to Jeweler::Tasks$/ do |dependency|
+Then /^Rakefile adds '(.*)' as a development dependency to Juwelier::Tasks$/ do |dependency|
   @rakefile_content ||= File.read(File.join(@working_dir, @name, 'Rakefile'))
-  block_variable, task_block = yank_task_info(@rakefile_content, "Jeweler::Tasks")
+  block_variable, task_block = yank_task_info(@rakefile_content, "Juwelier::Tasks")
 
   assert_match /#{block_variable}\.add_development_dependency "#{dependency}"/, task_block
 end
 
-Then /^Rakefile does not add '(.*)' as a development dependency to Jeweler::Tasks$/ do |dependency|
+Then /^Rakefile does not add '(.*)' as a development dependency to Juwelier::Tasks$/ do |dependency|
   @rakefile_content ||= File.read(File.join(@working_dir, @name, 'Rakefile'))
-  block_variable, task_block = yank_task_info(@rakefile_content, "Jeweler::Tasks")
+  block_variable, task_block = yank_task_info(@rakefile_content, "Juwelier::Tasks")
 
   assert_no_match /#{block_variable}\.add_development_dependency "#{dependency}"/, task_block
 end
@@ -334,7 +334,7 @@ end
 
 
 After do
-  ENV['JEWELER_OPTS'] = nil
+  ENV['JUWELIER_OPTS'] = nil
 end
 
 Then /^'Gemfile' has a (\w+) dependency on '(.*)'$/ do |group, name|
@@ -353,11 +353,11 @@ Then /^'Gemfile' does not have a (\w+) dependency on '(.*)'$/ do |group, name|
   assert_no_match Regexp.new(Regexp.escape(name)), group_block
 end
 
-Then /^'Gemfile' has a development dependency on the current version of jeweler$/ do
+Then /^'Gemfile' has a development dependency on the current version of juwelier$/ do
   @gemfile_content ||= File.read(File.join(@working_dir, @name, 'Gemfile'))
   group_block = yank_group_info(@gemfile_content, 'development')
   
-  assert_match %Q{gem "jeweler", "~> #{Jeweler::Version::STRING}"}, group_block
+  assert_match %Q{gem "juwelier", "~> #{Juwelier::Version::STRING}"}, group_block
 end
 
 

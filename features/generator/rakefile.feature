@@ -15,13 +15,13 @@ Feature: generated Rakefile
     And 'Rakefile' requires 'rubygems'
     And 'Rakefile' requires 'rake'
     And 'Rakefile' requires 'rdoc/task'
-    And Rakefile has 'the-perfect-gem' for the Jeweler::Tasks name
-    And Rakefile has 'bar@example.com' for the Jeweler::Tasks email
-    And Rakefile has 'zomg, so good' for the Jeweler::Tasks summary
-    And Rakefile has 'Descriptive' for the Jeweler::Tasks description
-    And Rakefile has 'http://github.com/technicalpickles/the-perfect-gem' for the Jeweler::Tasks homepage
-    And Rakefile has 'MIT' for the Jeweler::Tasks license
-    And Rakefile instantiates a Jeweler::RubygemsDotOrgTasks
+    And Rakefile has 'the-perfect-gem' for the Juwelier::Tasks name
+    And Rakefile has 'bar@example.com' for the Juwelier::Tasks email
+    And Rakefile has 'zomg, so good' for the Juwelier::Tasks summary
+    And Rakefile has 'Descriptive' for the Juwelier::Tasks description
+    And Rakefile has 'http://github.com/technicalpickles/the-perfect-gem' for the Juwelier::Tasks homepage
+    And Rakefile has 'MIT' for the Juwelier::Tasks license
+    And Rakefile instantiates a Juwelier::RubygemsDotOrgTasks
     And Rakefile has a magic comment for UTF-8
 
   Scenario: bacon
@@ -117,7 +117,7 @@ Feature: generated Rakefile
   Scenario: no rubyforge
     Given I do not want rubyforge setup
     When I generate a testunit project named 'the-perfect-gem' that is 'zomg, so good'
-    Then Rakefile does not instantiate a Jeweler::RubyforgeTasks
+    Then Rakefile does not instantiate a Juwelier::RubyforgeTasks
 
   Scenario: yard
     Given I want to use yard instead of rdoc
@@ -148,11 +148,11 @@ Feature: generated Rakefile
     When I generate a project named 'the-perfect-gem' that is 'zomg, so good' and described as 'Descriptive'
     Then 'Rakefile' requires 'bundler'
     And 'Rakefile' sets up bundler using the default and development groups
-    And Rakefile does not add 'jeweler' as a development dependency to Jeweler::Tasks
+    And Rakefile does not add 'juwelier' as a development dependency to Juwelier::Tasks
 
   Scenario: no bundler
     Given I do not want bundler
     When I generate a project named 'the-perfect-gem' that is 'zomg, so good' and described as 'Descriptive'
     Then 'Rakefile' does not require 'bundler'
     And 'Rakefile' does not setup bundler
-    And Rakefile adds 'jeweler' as a development dependency to Jeweler::Tasks
+    And Rakefile adds 'juwelier' as a development dependency to Juwelier::Tasks

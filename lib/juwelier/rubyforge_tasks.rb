@@ -17,35 +17,35 @@ class Juwelier
   #  * project: the rubyforge project to operate on. This defaults to whatever you specified in your gemspec. Defaults to your gem name.
   #  * remote_doc_path: the place to upload docs to on Rubyforge under /var/www/gforge-projects/#{project}/
   #
-  # See also http://wiki.github.com/technicalpickles/jeweler/rubyforge
+  # See also http://wiki.github.com/technicalpickles/juwelier/rubyforge
   class RubyforgeTasks < ::Rake::TaskLib
-    # The RubyForge project to interact with. Defaults to whatever is in your jeweler gemspec.
+    # The RubyForge project to interact with. Defaults to whatever is in your juwelier gemspec.
     attr_accessor :project
     # The path to upload docs to. It is relative to /var/www/gforge-projects/#{project}/, and defaults to your gemspec's name
     attr_accessor :remote_doc_path
     # Task to be used for generating documentation, before they are uploaded. Defaults to rdoc.
     attr_accessor :doc_task
 
-    attr_accessor :jeweler
+    attr_accessor :juwelier
 
     def initialize
       yield self if block_given?
 
-      $stderr.puts "Releasing gems to Rubyforge is deprecated. See details at http://wiki.github.com/technicalpickles/jeweler/migrating-from-releasing-gems-to-rubyforge"
+      $stderr.puts "Releasing gems to Rubyforge is deprecated. See details at http://wiki.github.com/technicalpickles/juwelier/migrating-from-releasing-gems-to-rubyforge"
 
       define
     end
 
-    def jeweler
-      @jeweler ||= Rake.application.jeweler
+    def juwelier
+      @juwelier ||= Rake.application.juwelier
     end
 
     def remote_doc_path
-      @remote_doc_path ||= jeweler.gemspec.name
+      @remote_doc_path ||= juwelier.gemspec.name
     end
 
     def project
-      @project ||= jeweler.gemspec.rubyforge_project
+      @project ||= juwelier.gemspec.rubyforge_project
     end
 
     def define
@@ -53,7 +53,7 @@ class Juwelier
         namespace :release do
           desc "Release the current gem version to RubyForge."
           task :gem do
-            $stderr.puts "DEPRECATION: Releasing gems to RubyForge is deprecated. You should see about releasing to Gemcutter instead: http://wiki.github.com/technicalpickles/jeweler/gemcutter"
+            $stderr.puts "DEPRECATION: Releasing gems to RubyForge is deprecated. You should see about releasing to Gemcutter instead: http://wiki.github.com/technicalpickles/juwelier/gemcutter"
           end
 
           if publish_documentation?

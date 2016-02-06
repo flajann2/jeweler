@@ -21,12 +21,12 @@ require 'construct'
 require 'git'
 require 'time'
 
-require 'jeweler'
+require 'juwelier'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'shoulda_macros/jeweler_macros'
+require 'shoulda_macros/juwelier_macros'
 
-TMP_DIR = '/tmp/jeweler_test'
+TMP_DIR = '/tmp/juwelier_test'
 FIXTURE_DIR = File.expand_path('../fixtures', __FILE__)
 
 class RubyForgeStub
@@ -62,7 +62,7 @@ class Test::Unit::TestCase
       s.name = "bar"
       s.summary = "Simple and opinionated helper for creating Rubygem projects on GitHub"
       s.email = "josh@technicalpickles.com"
-      s.homepage = "http://github.com/technicalpickles/jeweler"
+      s.homepage = "http://github.com/technicalpickles/juwelier"
       s.description = "Simple and opinionated helper for creating Rubygem projects on GitHub"
       s.authors = ["Josh Nichols"]
       s.files = FileList[*files] unless files.empty?
@@ -139,17 +139,17 @@ class Test::Unit::TestCase
         @gemspec_helper = Object.new
         @rubyforge      = Object.new
 
-        @jeweler        = Object.new
+        @juwelier        = Object.new
 
-        stub(@jeweler).repo           { @repo }
-        stub(@jeweler).version_helper { @version_helper }
-        stub(@jeweler).gemspec        { @gemspec }
-        stub(@jeweler).commit         { @commit }
-        stub(@jeweler).version        { @version }
-        stub(@jeweler).output         { @output }
-        stub(@jeweler).gemspec_helper { @gemspec_helper }
-        stub(@jeweler).base_dir       { @base_dir }
-        stub(@jeweler).rubyforge    { @rubyforge }
+        stub(@juwelier).repo           { @repo }
+        stub(@juwelier).version_helper { @version_helper }
+        stub(@juwelier).gemspec        { @gemspec }
+        stub(@juwelier).commit         { @commit }
+        stub(@juwelier).version        { @version }
+        stub(@juwelier).output         { @output }
+        stub(@juwelier).gemspec_helper { @gemspec_helper }
+        stub(@juwelier).base_dir       { @base_dir }
+        stub(@juwelier).rubyforge    { @rubyforge }
       end
 
       context "", &block

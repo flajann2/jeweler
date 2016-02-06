@@ -12,7 +12,7 @@ class Juwelier
   #
   # Easy enough, right?
   class RubygemsDotOrgTasks < ::Rake::TaskLib
-    attr_accessor :jeweler
+    attr_accessor :juwelier
 
     def initialize
       yield self if block_given?
@@ -20,15 +20,15 @@ class Juwelier
       define
     end
 
-    def jeweler
-      @jeweler ||= Rake.application.jeweler
+    def juwelier
+      @juwelier ||= Rake.application.juwelier
     end
 
     def define
       namespace :gemcutter do
         desc "Release gem to Gemcutter"
         task :release => [:gemspec, :build] do
-          jeweler.release_gem_to_rubygems
+          juwelier.release_gem_to_rubygems
         end
       end
 

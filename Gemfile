@@ -29,11 +29,11 @@ group :test do
   gem 'coveralls', :require => false
 end
 
-# yo dawg, i herd u lieked jeweler
+# yo dawg, i herd u lieked juwelier
 group :xzibit do
   # steal a page from bundler's gemspec:
-  # add this directory as jeweler, in order to bundle exec jeweler and use the current working directory
-  gem 'jeweler', :path => '.'
+  # add this directory as juwelier, in order to bundle exec juwelier and use the current working directory
+  gem 'juwelier', :path => '.'
 end
 
 group :debug do

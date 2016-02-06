@@ -26,12 +26,12 @@ class Juwelier
         file_utils.mv gem_file_name, pkg_dir
       end
 
-      def self.build_for(jeweler)
+      def self.build_for(juwelier)
         command = new
 
-        command.base_dir = jeweler.base_dir
-        command.gemspec_helper = jeweler.gemspec_helper
-        command.version_helper = jeweler.version_helper
+        command.base_dir = juwelier.base_dir
+        command.gemspec_helper = juwelier.gemspec_helper
+        command.version_helper = juwelier.version_helper
 
         command
       end
