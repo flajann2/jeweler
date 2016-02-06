@@ -1,6 +1,4 @@
-source "http://rubygems.org"
-source "http://gems.github.com"
-
+source "https://rubygems.org"
 
 gem "rake"
 gem "git", ">= 1.2.5"
@@ -16,6 +14,7 @@ group :development do
   gem "bluecloth"
   gem "cucumber", ">= 1.1.4"
   gem "simplecov"
+  gem "semver"
 end
 
 group :test do
@@ -36,7 +35,6 @@ group :xzibit do
   # add this directory as jeweler, in order to bundle exec jeweler and use the current working directory
   gem 'jeweler', :path => '.'
 end
-
 
 group :debug do
 end

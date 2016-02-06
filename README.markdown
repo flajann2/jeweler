@@ -1,29 +1,36 @@
-# Jeweler: Craft the perfect RubyGem
+# Juwelier: Craft the perfect RubyGem for Ruby 2.3.x and Beyond
 
-Jeweler provides the noble ruby developer with two primary features:
+ Provides the noble ruby developer with two primary features:
 
  * a library for managing and releasing RubyGem projects
  * a scaffold generator for starting new RubyGem projects
 
-[![Build Status](https://travis-ci.org/technicalpickles/jeweler.png)](https://travis-ci.org/technicalpickles/jeweler)
-[![Coverage Status](https://coveralls.io/repos/technicalpickles/jeweler/badge.png)](https://coveralls.io/r/technicalpickles/jeweler)
-[![Dependency Status](https://www.versioneye.com/ruby/jeweler/2.0.0/badge.png)](https://www.versioneye.com/ruby/jeweler/2.0.0)
+[![Build Status](https://travis-ci.org/technicalpickles/juwelier.png)](https://travis-ci.org/technicalpickles/juwelier)
+[![Coverage Status](https://coveralls.io/repos/technicalpickles/juwelier/badge.png)](https://coveralls.io/r/technicalpickles/juwelier)
+[![Dependency Status](https://www.versioneye.com/ruby/juwelier/2.0.0/badge.png)](https://www.versioneye.com/ruby/juwelier/2.0.0)
 
+ Note that his has been forked from the old Jeweler due to
+ lack of maintenance. I need this to work alread with the
+ latest Ruby, so I've taken it over.
+
+ "Juwelier" is "Jeweler" in German. Since I have made Germany
+ my new home, it only seemed approporiate.
+ 
 ## Hello, world
 
-Use RubyGems to install the heck out of jeweler to get started:
+Use RubyGems to install the heck out of juwelier to get started:
 
-    $ gem install jeweler
+    $ gem install juwelier
 
-With jeweler installed, you can use the `jeweler` command to generate a new project. For the most basic use, just give it a name:
+With juwelier installed, you can use the `juwelier` command to generate a new project. For the most basic use, just give it a name:
 
-    $ jeweler hello-gem
+    $ juwelier hello-gem
 
-This requires some Git configuration (like name, email, GitHub account, etc), but `jeweler` will prompt along the way.
+This requires some Git configuration (like name, email, GitHub account, etc), but `juwelier` will prompt along the way.
 
 Your new `hello-gem` gem is ready in the `hello-gem` directory. Take a peek, and you'll see several files and directories
 
- * `Rakefile` setup for jeweler, running tests, generating documentation, and releasing to [rubygems.org](http://rubygems.org/)
+ * `Rakefile` setup for juwelier, running tests, generating documentation, and releasing to [rubygems.org](http://rubygems.org/)
  * `README.rdoc` with contribution guidelines and copyright info crediting you
  * `LICENSE` with the MIT licensed crediting you
  * `Gemfile` with development dependencies filled in
@@ -31,11 +38,11 @@ Your new `hello-gem` gem is ready in the `hello-gem` directory. Take a peek, and
  * `test/` containing a (failing) shoulda test suite [shoulda](http://github.com/thoughtbot/shoulda)
 
 
-### More `jeweler` options
+### More `juwelier` options
 
-The `jeweler` command supports a lot of options. Mostly, they are for generating baked in support for this test framework, or that.
+The `juwelier` command supports a lot of options. Mostly, they are for generating baked in support for this test framework, or that.
 
-Check out `jeweler --help` for the most up to date options.
+Check out `juwelier --help` for the most up to date options.
 
 ## Hello, rake tasks
 
@@ -63,7 +70,7 @@ At last, it's time to [ship it](http://shipitsquirrel.github.com/)! Make sure yo
 
 This will automatically:
 
- * Generate `hello-gem.gemspec` and commit it
+ *Juwelier Generate `hello-gem.gemspec` and commit it
  * Use `git` to tag `v0.1.0` and push it
  * Build `hello-gem-0.1.0.gem` and push it to [rubygems.org](http://rubygems.org/gems/)
 
@@ -106,19 +113,19 @@ If you've been following along so far, your gem is just a blank slate. You're go
 
 You can customize your gem by updating your `Rakefile`. With a newly generated project, it will look something like this:
 
-    require 'jeweler'
-    Jeweler::Tasks.new do |gem|
+ Juwelier   require 'juwelier'
+    ::Tasks.new do |gem|
       # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
       gem.name = "whatwhatwhat"
       gem.summary = %Q{TODO: one-line summary of your gem}
       gem.description = %Q{TODO: longer description of your gem}
       gem.email = "josh@technicalpickles.com"
       gem.homepage = "http://github.com/technicalpickles/whatwhatwhat"
-      gem.authors = ["Joshua Nichols"]
+  Juwelier    gem.authors = ["Joshua Nichols"]
     end
-    Jeweler::RubygemsDotOrgTasks.new
+  JuwelierJuwelier  ::RubygemsDotOrgTasks.new
 
-It's crucial to understand the `gem` object is just a Gem::Specification. You can read up about it at [guides.rubygems.org/specification-reference](http://guides.rubygems.org/specification-reference/). This is the most basic way of specifying a gem, Jeweler-managed or not. Jeweler just exposes this to you, in addition to providing some reasonable defaults, which we'll explore now.
+It's crucial to understand the `gem` object is just a Gem::Specification. You can read up about it at [guides.rubygems.org/specification-reference](http://guides.rubygems.org/specification-reference/). This is the most basic way of specifying a gem, -managed or not.  just exposes this to you, in addition to providing some reasonable defaults, which we'll explore now.
 
 ### Project information
 
@@ -140,17 +147,17 @@ This should be a way to get a hold of you regarding the gem.
 
     gem.homepage = "http://github.com/technicalpickles/whatwhatwhat"
 
-The homepage should have more information about your gem. The jeweler generator guesses this based on the assumption your code lives on [GitHub](http://github.com/), using your Git configuration to find your GitHub username. This is displayed by `gem list --details` and on rubygems.org.
+The homepage should have more information about your gem. The juwelier generator guesses this based on the assumption your code lives on [GitHub](http://github.com/), using your Git configuration to find your GitHub username. This is displayed by `gem list --details` and on rubygems.org.
 
     gem.authors = ["Joshua Nichols"]
 
-Hey, this is you, the author (or me in this case). The `jeweler` generator also guesses this from your Git configuration. This is displayed by `gem list --details` and on rubygems.org.
+Hey, this is you, the author (or me in this case). The `juwelier` generator also guesses this from your Git configuration. This is displayed by `gem list --details` and on rubygems.org.
 
-### Files
+##Juwelier# Files
 
-The quickest way to add more files is to `git add` them. Jeweler uses your Git repository to populate your gem's files by including added and committed and excluding `.gitignore`d. In most cases, this is reasonable enough.
+ThJuweliere quickest way to add more files is to `git add` them.  uses your Git repository to populate your gem's files by including added and committed and excluding `.gitignore`d. In most cases, this is reasonable enough.
 
-If you need to tweak the files, that's cool. Jeweler populates `gem.files` as a `Rake::FileList`. It's like a normal array, except you can `include` and `exclude` file globs:
+If you need to tweak the files, that's cool.  populates `gem.files` as a `Rake::FileList`. It's like a normal array, except you can `include` and `exclude` file globs:
 
     gem.files.exclude 'tmp' # exclude temporary directory
     gem.files.include 'lib/foo/bar.rb' # explicitly include lib/foo/bar.rb
@@ -174,9 +181,9 @@ This will ensure a version of `nokogiri` is installed, but it doesn't require an
 
 When specifying which version is required, there's a bit of the condunrum. You want to allow the most versions possible, but you want to be sure they are compatible. Using `>= 1.2.1` is fine most of the time, except until the point that 2.0.0 comes out and totally breaks backwards the API. That's when it's good to use `~> 1.2.1`, which requires any version in the `1.2` family, starting with `1.2.1`.
 
-### Executables
+##Juwelier# Executables
 
-Executables let your gem install shell commands. Just put any executable scripts in the `bin/` directory, make sure they are added using `git`, and Jeweler will take care of the rest.
+Executables let your gem install shell commands. Just put any executable scripts in the `bin/` directory, make sure they are added using `git`, and  will take care of the rest.
 
 When you need more finely grained control over it, you can set it yourself:
 
@@ -184,9 +191,9 @@ When you need more finely grained control over it, you can set it yourself:
 
 ### Versioning
 
-We discussed earlier how to bump the version. The rake tasks are really just convience methods for manipulating the `VERSION` file. It just contains a version string, like `1.2.3`.
+WeJuwelierJuwelier discussed earlier how to bump the version. The rake tasks are really just convience methods for manipulating the `VERSION` file. It just contains a version string, like `1.2.3`.
 
-`VERSION` is a convention used by Jeweler, and is used to populate `gem.version`. You can actually set this yourself, and Jeweler won't try to override it:
+`VERSION` is a convention used by , and is used to populate `gem.version`. You can actually set this yourself, and  won't try to override it:
 
     gem.version = '1.2.3'
 
@@ -205,24 +212,24 @@ A common pattern is to have this in a version constant in your library. This is 
     end
 
     # in Rakefile
-    require 'jeweler'
+  Juwelier  require 'juwelier'
     require './lib/foo/version.rb'
-    Jeweler::Tasks.new do |gem|
+    ::Tasks.new do |gem|
       # snip
       gem.version = Foo::Version::STRING
     end
 
-### Rake tasks
+##Juwelier# Rake tasks
 
-Jeweler lives inside of Rake. As a result, they are dear friends. But, that friendship doesn't interfere with typical Rake operations.
+ lives inside of Rake. As a result, they are dear friends. But, that friendship doesn't interfere with typical Rake operations.
 
-That means you can define your own namespaces, tasks, or use third party Rake libraries without cause for concern.
+ThJuwelierat means you can define your own namespaces, tasks, or use third party Rake libraries without cause for concern.
 
-## Contributing to Jeweler
+## Contributing to 
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
-* Ask on the [mailing list](http://groups.google.com/group/jeweler-rb) for feedback on your proposal, to see if somebody else has done it.
-* Check out the [issue tracker](http://github.com/technicalpickles/jeweler/issues) to make sure someone already hasn't requested it and/or contributed it
+* Ask on the [mailing list](http://groups.google.com/group/juwelier-rb) for feedback on your proposal, to see if somebody else has done it.
+* Check out the [issue tracker](http://github.com/technicalpickles/juwelier/issues) to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
 * Start a feature/bugfix branch
 * Commit and push until you are happy with your contribution

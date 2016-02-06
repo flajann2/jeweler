@@ -1,3 +1,9 @@
+# juwelier 2.1.0, 2016-02-06
+
+ * Forked from the unmaintained Jeweler
+ * Reworked and modernized to work with Ruby 2.3.0
+ * Incorporated semver to maintain its versioning
+
 # jeweler 2.0.0, 2014-01-05
 
  * Ruby 1.8 is not supported anymore.
