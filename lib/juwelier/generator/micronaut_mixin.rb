@@ -1,4 +1,4 @@
-class Jeweler
+class Juwelier
   class Generator
     module MicronautMixin
       def self.extended(generator)

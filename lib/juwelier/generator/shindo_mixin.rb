@@ -1,4 +1,4 @@
-class Jeweler
+class Juwelier
   class Generator
     module ShindoMixin
       def self.extended(generator)

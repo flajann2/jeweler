@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+# Don't try to run this binary directory. Instead:
+# * `bundle exec juwelier` if doing juwelier development
+# * `bundle exec juwelier` if part of a bundle
+# * `juwelier` if installed through rubygems, relying on the rubygem wrapper
+
+require 'juwelier/generator'
+
+exit Juwelier::Generator::Application.run!(*ARGV)

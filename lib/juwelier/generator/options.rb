@@ -1,4 +1,4 @@
-class Jeweler
+class Juwelier
   class Generator
     class Options < Hash
       attr_reader :opts, :orig_args

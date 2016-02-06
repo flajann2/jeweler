@@ -1,4 +1,4 @@
-class Jeweler
+class Juwelier
   class Generator
     module MinitestMixin
       def self.extended(generator)

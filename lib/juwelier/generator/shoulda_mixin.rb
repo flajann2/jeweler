@@ -1,4 +1,4 @@
-class Jeweler
+class Juwelier
   class Generator
     module ShouldaMixin
       def self.extended(generator)
