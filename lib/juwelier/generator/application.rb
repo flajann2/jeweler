@@ -49,7 +49,7 @@ class Juwelier
         end
 
         def build_options(arguments)
-          env_opts_string = ENV['JEWELER_OPTS'] || ""
+          env_opts_string = ENV['JUWELIER_OPTS'] || ""
           env_opts        = Juwelier::Generator::Options.new(shellwords(env_opts_string))
           argument_opts   = Juwelier::Generator::Options.new(arguments)
 

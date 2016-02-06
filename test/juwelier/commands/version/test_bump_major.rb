@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Jeweler
+class Juwelier
   module Commands
     module Version
       class TestBumpMajor < Test::Unit::TestCase
@@ -8,7 +8,7 @@ class Jeweler
         should "call bump_major on version_helper in update_version" do
           mock(version_helper = Object.new).bump_major
 
-          command = Jeweler::Commands::Version::BumpMajor.new
+          command = Juwelier::Commands::Version::BumpMajor.new
           command.version_helper = version_helper
 
           command.update_version

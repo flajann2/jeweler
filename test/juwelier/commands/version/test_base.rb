@@ -1,12 +1,12 @@
 require 'test_helper'
 
-class Jeweler
+class Juwelier
   module Commands
     module Version
       class TestBase < Test::Unit::TestCase
-        build_command_context "build for jeweler" do
+        build_command_context "build for juwelier" do
           setup do
-            @command = Jeweler::Commands::Version::Base.build_for(@jeweler)
+            @command = Juwelier::Commands::Version::Base.build_for(@juwelier)
           end
 
           should "assign repo" do

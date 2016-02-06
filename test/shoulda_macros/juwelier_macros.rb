@@ -2,25 +2,25 @@ class Test::Unit::TestCase
   class << self
     def should_have_major_version(version)
       should "have major version of #{version}" do 
-        assert_equal version, @jeweler.major_version
+        assert_equal version, @juwelier.major_version
       end
     end
     
     def should_have_minor_version(version)
       should "have minor version of #{version}" do
-        assert_equal version, @jeweler.minor_version
+        assert_equal version, @juwelier.minor_version
       end
     end
     
     def should_have_patch_version(version)
       should "have patch version of #{version}" do
-        assert_equal version, @jeweler.patch_version
+        assert_equal version, @juwelier.patch_version
       end
     end
     
     def should_be_version(version)
       should "be version #{version}" do
-        assert_equal version, @jeweler.version
+        assert_equal version, @juwelier.version
       end
     end
     

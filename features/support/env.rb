@@ -7,7 +7,7 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
-require 'jeweler'
+require 'juwelier'
 require 'mocha'
 require 'output_catcher'
 require 'timecop'

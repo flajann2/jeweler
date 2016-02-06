@@ -12,7 +12,7 @@ doc
 # bundler
 .bundle
 
-# jeweler generated
+# juwelier generated
 pkg
 
 # Have editor/IDE/OS specific files you need to ignore? Consider using a global gitignore: 

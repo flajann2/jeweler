@@ -54,10 +54,10 @@ class Juwelier
         end
       end
 
-      def self.build_for(jeweler)
+      def self.build_for(juwelier)
         command = new
 
-        command.gemspec = jeweler.gemspec
+        command.gemspec = juwelier.gemspec
 
         command
       end

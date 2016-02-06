@@ -2,8 +2,8 @@ require 'rubygems'
 require 'rake'
 
 begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
+  require 'juwelier'
+  Juwelier::Tasks.new do |gem|
     gem.name = "existing-project-with-version"
     gem.summary = %Q{Summarize your gem}
     gem.email = "josh@technicalpickles.com"
@@ -12,7 +12,7 @@ begin
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
-  puts "Jeweler not available. Install it with: gem install technicalpickles-jeweler -s http://gems.github.com"
+  puts "Juwelier not available. Install it with: gem install technicalpickles-juwelier -s http://gems.github.com"
 end
 
 require 'rake/testtask'

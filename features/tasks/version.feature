@@ -2,7 +2,7 @@ Feature: version rake task
 
   #Scenario: a newly created project without a version
   #  Given a working directory
-  #  And I use the jeweler command to generate the "the-perfect-gem" project in the working directory
+  #  And I use the juwelier command to generate the "the-perfect-gem" project in the working directory
   #  And "the-perfect-gem/VERSION" does not exist
   #  When I run "rake version" in "the-perfect-gem"
   #  Then the process should not exit cleanly
