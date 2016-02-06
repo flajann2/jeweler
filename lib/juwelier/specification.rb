@@ -1,8 +1,8 @@
 
 require 'rubygems/specification'
 
-class Jeweler
-  # Extend a Gem::Specification instance with this module to give it Jeweler
+class Juwelier
+  # Extend a Gem::Specification instance with this module to give it Juwelier
   # super-cow powers.
   #
   # [files] a Rake::FileList of anything that is in git and not gitignored. You can include/exclude this default set, or override it entirely
@@ -28,8 +28,8 @@ class Jeweler
     filelist_attribute :files
     filelist_attribute :extra_rdoc_files
 
-    # Assigns the Jeweler defaults to the Gem::Specification
-    def set_jeweler_defaults(base_dir, git_base_dir = nil)
+    # Assigns the Juwelier defaults to the Gem::Specification
+    def set_juwelier_defaults(base_dir, git_base_dir = nil)
       base_dir = File.expand_path(base_dir)
       git_base_dir = if git_base_dir
                        File.expand_path(git_base_dir)
@@ -99,7 +99,7 @@ end
 
 
 # Workaround for cloning/duping a Gem::Specification
-# documented in http://github.com/technicalpickles/jeweler/issues#issue/73
+# documented in http://github.com/technicalpickles/juwelier/issues#issue/73
 Gem::Specification.class_eval do
   def initialize_copy(original)
     super

@@ -1,44 +1,44 @@
 require 'pathname'
 require 'date'
-require 'jeweler/version'
+require 'juwelier/version'
 
-# A Jeweler helps you craft the perfect Rubygem. Give him a gemspec, and he takes care of the rest.
+# A Juwelier helps you craft the perfect Rubygem. Give him a gemspec, and he takes care of the rest.
 #
-# See Jeweler::Tasks for examples of how to get started. Additionally, resources are available on the wiki:
+# See Juwelier::Tasks for examples of how to get started. Additionally, resources are available on the wiki:
 #
-# * http://wiki.github.com/technicalpickles/jeweler/create-a-new-project
-# * http://wiki.github.com/technicalpickles/jeweler/configure-an-existing-project
-class Jeweler
-  require 'jeweler/errors'
+# * http://wiki.github.com/technicalpickles/juwelier/create-a-new-project
+# * http://wiki.github.com/technicalpickles/juwelier/configure-an-existing-project
+class Juwelier
+  require 'juwelier/errors'
   require 'rubygems/user_interaction'
   require 'rubygems/package'
 
-  autoload :Generator,      'jeweler/generator'
+  autoload :Generator,      'juwelier/generator'
 
-  autoload :Commands,       'jeweler/commands'
+  autoload :Commands,       'juwelier/commands'
   
-  autoload :VersionHelper,  'jeweler/version_helper'
-  autoload :GemSpecHelper,  'jeweler/gemspec_helper'
+  autoload :VersionHelper,  'juwelier/version_helper'
+  autoload :GemSpecHelper,  'juwelier/gemspec_helper'
 
-  autoload :Tasks,          'jeweler/tasks'
-  autoload :RubygemsDotOrgTasks,  'jeweler/rubygems_dot_org_tasks'
-  autoload :GemcutterTasks, 'jeweler/gemcutter_tasks'
-  autoload :RubyforgeTasks, 'jeweler/rubyforge_tasks'
-  autoload :Specification,  'jeweler/specification'
+  autoload :Tasks,          'juwelier/tasks'
+  autoload :RubygemsDotOrgTasks,  'juwelier/rubygems_dot_org_tasks'
+  autoload :GemcutterTasks, 'juwelier/gemcutter_tasks'
+  autoload :RubyforgeTasks, 'juwelier/rubyforge_tasks'
+  autoload :Specification,  'juwelier/specification'
 
   attr_reader :gemspec, :gemspec_helper, :version_helper
   attr_accessor :base_dir, :output, :repo, :commit
 
   def initialize(gemspec, base_dir = '.')
-    raise(GemspecError, "Can't create a Jeweler with a nil gemspec") if gemspec.nil?
+    raise(GemspecError, "Can't create a Juwelier with a nil gemspec") if gemspec.nil?
 
     @gemspec = gemspec
     @gemspec.extend(Specification)
-    @gemspec.set_jeweler_defaults(base_dir, git_base_dir)
+    @gemspec.set_juwelier_defaults(base_dir, git_base_dir)
 
     @base_dir       = base_dir
     @repo           = Git.open(git_base_dir) if in_git_repo?
-    @version_helper = Jeweler::VersionHelper.new(base_dir)
+    @version_helper = Juwelier::VersionHelper.new(base_dir)
     @output         = $stdout
     @commit         = true
     @gemspec_helper = GemSpecHelper.new(gemspec, base_dir)
@@ -69,13 +69,13 @@ class Jeweler
 
   # Writes out the gemspec
   def write_gemspec
-    Jeweler::Commands::WriteGemspec.build_for(self).run
+    Juwelier::Commands::WriteGemspec.build_for(self).run
   end
 
   # Validates the project's gemspec from disk in an environment similar to how 
   # GitHub would build from it. See http://gist.github.com/16215
   def validate_gemspec
-    Jeweler::Commands::ValidateGemspec.build_for(self).run
+    Juwelier::Commands::ValidateGemspec.build_for(self).run
   end
 
   # is the project's gemspec from disk valid?
@@ -85,38 +85,38 @@ class Jeweler
 
   # Build a gem using the project's latest Gem::Specification
   def build_gem
-    Jeweler::Commands::BuildGem.build_for(self).run
+    Juwelier::Commands::BuildGem.build_for(self).run
   end
 
   # Install a previously built gem
   def install_gem
-    Jeweler::Commands::InstallGem.build_for(self).run
+    Juwelier::Commands::InstallGem.build_for(self).run
   end
 
   # Bumps the patch version.
   #
   # 1.5.1 -> 1.5.2
   def bump_patch_version()
-    Jeweler::Commands::Version::BumpPatch.build_for(self).run
+    Juwelier::Commands::Version::BumpPatch.build_for(self).run
   end
 
   # Bumps the minor version.
   #
   # 1.5.1 -> 1.6.0
   def bump_minor_version()
-    Jeweler::Commands::Version::BumpMinor.build_for(self).run
+    Juwelier::Commands::Version::BumpMinor.build_for(self).run
   end
 
   # Bumps the major version.
   #
   # 1.5.1 -> 2.0.0
   def bump_major_version()
-    Jeweler::Commands::Version::BumpMajor.build_for(self).run
+    Juwelier::Commands::Version::BumpMajor.build_for(self).run
   end
 
   # Bumps the version, to the specific major/minor/patch version, writing out the appropriate version.rb, and then reloads it.
   def write_version(major, minor, patch, build, options = {})
-    command = Jeweler::Commands::Version::Write.build_for(self)
+    command = Juwelier::Commands::Version::Write.build_for(self)
     command.major = major
     command.minor = minor
     command.patch = patch
@@ -126,15 +126,15 @@ class Jeweler
   end
 
   def release_gemspec(args)
-    Jeweler::Commands::ReleaseGemspec.build_for(self).run(args)
+    Juwelier::Commands::ReleaseGemspec.build_for(self).run(args)
   end
 
   def release_to_git(args)
-    Jeweler::Commands::ReleaseToGit.build_for(self).run(args)
+    Juwelier::Commands::ReleaseToGit.build_for(self).run(args)
   end
 
   def release_gem_to_rubygems
-    Jeweler::Commands::ReleaseToRubygems.build_for(self).run
+    Juwelier::Commands::ReleaseToRubygems.build_for(self).run
   end
 
   def release_gem_to_rubyforge
@@ -146,7 +146,7 @@ class Jeweler
   end
 
   def check_dependencies(type = nil)
-    command = Jeweler::Commands::CheckDependencies.build_for(self)
+    command = Juwelier::Commands::CheckDependencies.build_for(self)
     command.type = type
 
     command.run

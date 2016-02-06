@@ -5,7 +5,7 @@ end
 
 require 'yaml'
 
-class Jeweler
+class Juwelier
   class VersionHelper
     attr_accessor :base_dir
     attr_reader :major, :minor, :patch, :build

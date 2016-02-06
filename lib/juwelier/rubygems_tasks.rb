@@ -1,14 +1,14 @@
 require 'rake'
 require 'rake/tasklib'
 
-class Jeweler
-  # Rake tasks for putting a Jeweler gem on Gemcutter.
+class Juwelier
+  # Rake tasks for putting a Juwelier gem on Gemcutter.
   #
-  # Jeweler::Tasks.new needs to be used before this.
+  # Juwelier::Tasks.new needs to be used before this.
   #
   # Basic usage:
   #
-  #     Jeweler::RubygemsDotOrgTasks.new
+  #     Juwelier::RubygemsDotOrgTasks.new
   #
   # Easy enough, right?
   class RubygemsDotOrgTasks < ::Rake::TaskLib

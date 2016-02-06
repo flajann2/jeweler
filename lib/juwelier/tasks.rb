@@ -6,26 +6,26 @@ require 'rake/clean'
 CLEAN.include('pkg/*.gem')
 
 class Rake::Application
-  attr_accessor :jeweler_tasks
+  attr_accessor :juwelier_tasks
 
-  # The jeweler instance that has be instantiated in the current Rakefile.
+  # The juwelier instance that has be instantiated in the current Rakefile.
   #
   # This is usually useful if you want to get at info like version from other files.
-  def jeweler
-    jeweler_tasks.jeweler
+  def juwelier
+    juwelier_tasks.juwelier
   end
 end
 
-class Jeweler
+class Juwelier
   # Rake tasks for managing your gem.
   #
   # Here's a basic usage example:
   #
-  #   Jeweler::Tasks.new do |gem|
-  #     gem.name = "jeweler"
+  #   Juwelier::Tasks.new do |gem|
+  #     gem.name = "juwelier"
   #     gem.summary = "Simple and opinionated helper for creating RubyGem projects on GitHub"
   #     gem.email = "josh@technicalpickles.com"
-  #     gem.homepage = "http://github.com/technicalpickles/jeweler"
+  #     gem.homepage = "http://github.com/technicalpickles/juwelier"
   #     gem.description = "Simple and opinionated helper for creating RubyGem projects on GitHub"
   #     gem.authors = ["Josh Nichols"]
   #   end
@@ -35,31 +35,31 @@ class Jeweler
   # For more details, see the official gemspec reference:
   # http://guides.rubygems.org/specification-reference
   #
-  # In addition, it provides reasonable defaults for several values. See Jeweler::Specification for more details.
+  # In addition, it provides reasonable defaults for several values. See Juwelier::Specification for more details.
   class Tasks < ::Rake::TaskLib
-    attr_accessor :gemspec, :jeweler, :gemspec_building_block
+    attr_accessor :gemspec, :juwelier, :gemspec_building_block
 
     def initialize(gemspec = nil, &gemspec_building_block)
       @gemspec = gemspec || Gem::Specification.new
       self.gemspec_building_block = gemspec_building_block
 
-      Rake.application.jeweler_tasks = self
+      Rake.application.juwelier_tasks = self
       define
     end
 
-    def jeweler
-      if @jeweler.nil?
-        @jeweler = Jeweler.new(gemspec)
+    def juwelier
+      if @juwelier.nil?
+        @juwelier = Juwelier.new(gemspec)
         gemspec_building_block.call gemspec if gemspec_building_block
       end
-      @jeweler
+      @juwelier
     end
 
   private
 
     def yield_gemspec_set_version?
       yielded_gemspec = @gemspec.dup
-      yielded_gemspec.extend(Jeweler::Specification)
+      yielded_gemspec.extend(Juwelier::Specification)
       yielded_gemspec.files = FileList[]
       yielded_gemspec.extra_rdoc_files = FileList[]
 
@@ -79,33 +79,33 @@ class Jeweler
 
     def define
       task :version_required do
-        if jeweler.expects_version_file? && !jeweler.version_file_exists?
+        if juwelier.expects_version_file? && !juwelier.version_file_exists?
           abort "Expected VERSION or VERSION.yml to exist. Use 'rake version:write' to create an initial one."
         end
       end
 
       task :gemspec_required do
-        if ! File.exist?(jeweler.gemspec_helper.path)
-          abort "Expected #{jeweler.gemspec_helper.path} to exist. See 'rake gemspec:write' to create it"
+        if ! File.exist?(juwelier.gemspec_helper.path)
+          abort "Expected #{juwelier.gemspec_helper.path} to exist. See 'rake gemspec:write' to create it"
         end
       end
 
 
       desc "Build gem into pkg/"
       task :build do
-        jeweler.build_gem
+        juwelier.build_gem
       end
 
 
 
       desc "Build and install gem using `gem install`"
       task :install => [:build] do
-        jeweler.install_gem
+        juwelier.install_gem
       end
 
       desc "Displays the current version"
       task :version => :version_required do
-        $stdout.puts "Current version: #{jeweler.version}"
+        $stdout.puts "Current version: #{juwelier.version}"
       end
 
       desc "Release gem"
@@ -118,28 +118,28 @@ class Jeweler
       namespace :gemspec do
         desc "Validates the gemspec on the filesystem"
         task :validate => :gemspec_required do
-          jeweler.validate_gemspec
+          juwelier.validate_gemspec
         end
 
         desc "Regenerate the gemspec on the filesystem"
         task :generate => :version_required do
-          jeweler.write_gemspec
+          juwelier.write_gemspec
         end
 
-        desc "Display the gemspec for debugging purposes, as jeweler knows it (not from the filesystem)"
+        desc "Display the gemspec for debugging purposes, as juwelier knows it (not from the filesystem)"
         task :debug do
           # TODO move to a command
-          jeweler.gemspec_helper.spec.version ||= begin
-                                                    jeweler.version_helper.refresh
-                                                    jeweler.version_helper.to_s
+          juwelier.gemspec_helper.spec.version ||= begin
+                                                    juwelier.version_helper.refresh
+                                                    juwelier.version_helper.to_s
                                                   end
 
-          puts jeweler.gemspec_helper.to_ruby
+          puts juwelier.gemspec_helper.to_ruby
         end
 
         desc "Regenerate and validate gemspec, and then commits and pushes to git"
         task :release do
-          jeweler.release_gemspec(release_args)
+          juwelier.release_gemspec(release_args)
         end
       end
 
@@ -151,27 +151,27 @@ class Jeweler
           desc "Writes out an explicit version. Respects the following environment variables, or defaults to 0: MAJOR, MINOR, PATCH. Also recognizes BUILD, which defaults to nil"
           task :write do
             major, minor, patch, build = ENV['MAJOR'].to_i, ENV['MINOR'].to_i, ENV['PATCH'].to_i, (ENV['BUILD'] || nil )
-            jeweler.write_version(major, minor, patch, build, :announce => false, :commit => false)
-            $stdout.puts "Updated version: #{jeweler.version}"
+            juwelier.write_version(major, minor, patch, build, :announce => false, :commit => false)
+            $stdout.puts "Updated version: #{juwelier.version}"
           end
 
           namespace :bump do
             desc "Bump the major version by 1"
             task :major => [:version_required, :version] do
-              jeweler.bump_major_version
-              $stdout.puts "Updated version: #{jeweler.version}"
+              juwelier.bump_major_version
+              $stdout.puts "Updated version: #{juwelier.version}"
             end
 
             desc "Bump the a minor version by 1"
             task :minor => [:version_required, :version] do
-              jeweler.bump_minor_version
-              $stdout.puts "Updated version: #{jeweler.version}"
+              juwelier.bump_minor_version
+              $stdout.puts "Updated version: #{juwelier.version}"
             end
 
             desc "Bump the patch version by 1"
             task :patch => [:version_required, :version] do
-              jeweler.bump_patch_version
-              $stdout.puts "Updated version: #{jeweler.version}"
+              juwelier.bump_patch_version
+              $stdout.puts "Updated version: #{juwelier.version}"
             end
           end
         end
@@ -181,7 +181,7 @@ class Jeweler
       namespace :git do
         desc "Tag and push release to git. (happens by default with `rake release`)"
         task :release do
-          jeweler.release_to_git(release_args)
+          juwelier.release_to_git(release_args)
         end
       end
 
@@ -190,18 +190,18 @@ class Jeweler
       unless File.exist?('Gemfile')
         desc "Check that runtime and development dependencies are installed"
         task :check_dependencies do
-          jeweler.check_dependencies
+          juwelier.check_dependencies
         end
 
         namespace :check_dependencies do
           desc "Check that runtime dependencies are installed"
           task :runtime  do
-            jeweler.check_dependencies(:runtime)
+            juwelier.check_dependencies(:runtime)
           end
 
           desc"Check that development dependencies are installed"
           task :development do
-            jeweler.check_dependencies(:development)
+            juwelier.check_dependencies(:development)
           end
         end
       end

@@ -1,4 +1,4 @@
-class Jeweler
+class Juwelier
   # Gemspec related error
   class GemspecError < StandardError
   end

@@ -9,9 +9,9 @@ require 'uri'
 require 'fileutils'
 require 'pathname'
 
-require 'jeweler/version'
+require 'juwelier/version'
 
-class Jeweler
+class Juwelier
   class NoGitUserName < StandardError
   end
   class NoGitUserEmail < StandardError
@@ -27,25 +27,25 @@ class Jeweler
   class GitRepoCreationFailed < StandardError
   end
 
-  # Generator for creating a jeweler-enabled project
+  # Generator for creating a juwelier-enabled project
   class Generator    
-    require 'jeweler/generator/options'
-    require 'jeweler/generator/application'
+    require 'juwelier/generator/options'
+    require 'juwelier/generator/application'
 
-    require 'jeweler/generator/github_mixin'
+    require 'juwelier/generator/github_mixin'
 
-    require 'jeweler/generator/bacon_mixin'
-    require 'jeweler/generator/micronaut_mixin'
-    require 'jeweler/generator/minitest_mixin'
-    require 'jeweler/generator/rspec_mixin'
-    require 'jeweler/generator/shoulda_mixin'
-    require 'jeweler/generator/testspec_mixin'
-    require 'jeweler/generator/testunit_mixin'
-    require 'jeweler/generator/riot_mixin'
-    require 'jeweler/generator/shindo_mixin'
+    require 'juwelier/generator/bacon_mixin'
+    require 'juwelier/generator/micronaut_mixin'
+    require 'juwelier/generator/minitest_mixin'
+    require 'juwelier/generator/rspec_mixin'
+    require 'juwelier/generator/shoulda_mixin'
+    require 'juwelier/generator/testspec_mixin'
+    require 'juwelier/generator/testunit_mixin'
+    require 'juwelier/generator/riot_mixin'
+    require 'juwelier/generator/shindo_mixin'
 
-    require 'jeweler/generator/rdoc_mixin'
-    require 'jeweler/generator/yard_mixin'
+    require 'juwelier/generator/rdoc_mixin'
+    require 'juwelier/generator/yard_mixin'
 
     attr_accessor :target_dir, :user_name, :user_email, :summary, :homepage,
                   :description, :project_name, :github_username,
@@ -106,7 +106,7 @@ class Jeweler
 
       # TODO make bundler optional?
       development_dependencies << ["bundler", "~> 1.0"]
-      development_dependencies << ["jeweler", "~> #{Jeweler::Version::STRING}"]
+      development_dependencies << ["juwelier", "~> #{Juwelier::Version::STRING}"]
       development_dependencies << ["simplecov", ">= 0"]
 
       development_dependencies << ["reek", "~> 1.2.8"] if should_use_reek
@@ -127,10 +127,10 @@ class Jeweler
     def run
       create_files
       create_version_control
-      $stdout.puts "Jeweler has prepared your gem in #{target_dir}"
+      $stdout.puts "Juwelier has prepared your gem in #{target_dir}"
       if should_create_remote_repo
         create_and_push_repo
-        $stdout.puts "Jeweler has pushed your repo to #{git_remote}"
+        $stdout.puts "Juwelier has pushed your repo to #{git_remote}"
       end
     end
 
