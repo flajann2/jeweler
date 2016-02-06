@@ -5,8 +5,8 @@
  * a library for managing and releasing RubyGem projects
  * a scaffold generator for starting new RubyGem projects
 
-[![Build Status](https://travis-ci.org/technicalpickles/juwelier.png)](https://travis-ci.org/technicalpickles/juwelier)
-[![Coverage Status](https://coveralls.io/repos/technicalpickles/juwelier/badge.png)](https://coveralls.io/r/technicalpickles/juwelier)
+[![Build Status](https://travis-ci.org/flajann2/juwelier.png)](https://travis-ci.org/flajann2/juwelier)
+[![Coverage Status](https://coveralls.io/repos/flajann2/juwelier/badge.png)](https://coveralls.io/r/flajann2/juwelier)
 [![Dependency Status](https://www.versioneye.com/ruby/juwelier/2.0.0/badge.png)](https://www.versioneye.com/ruby/juwelier/2.0.0)
 
  Note that his has been forked from the old Jeweler due to
@@ -119,8 +119,8 @@ You can customize your gem by updating your `Rakefile`. With a newly generated p
       gem.name = "whatwhatwhat"
       gem.summary = %Q{TODO: one-line summary of your gem}
       gem.description = %Q{TODO: longer description of your gem}
-      gem.email = "josh@technicalpickles.com"
-      gem.homepage = "http://github.com/technicalpickles/whatwhatwhat"
+      gem.email = "josh@flajann2.com"
+      gem.homepage = "http://github.com/flajann2/whatwhatwhat"
   Juwelier    gem.authors = ["Joshua Nichols"]
     end
   JuwelierJuwelier  ::RubygemsDotOrgTasks.new
@@ -141,11 +141,11 @@ This is a one line summary of your gem. This is displayed, for example, when you
 
 Description is a longer description. Scholars ascertain that knowledge of where the description is used was lost centuries ago.
 
-    gem.email = "josh@technicalpickles.com"
+    gem.email = "josh@flajann2.com"
 
 This should be a way to get a hold of you regarding the gem.
 
-    gem.homepage = "http://github.com/technicalpickles/whatwhatwhat"
+    gem.homepage = "http://github.com/flajann2/whatwhatwhat"
 
 The homepage should have more information about your gem. The juwelier generator guesses this based on the assumption your code lives on [GitHub](http://github.com/), using your Git configuration to find your GitHub username. This is displayed by `gem list --details` and on rubygems.org.
 
@@ -229,7 +229,7 @@ ThJuwelierat means you can define your own namespaces, tasks, or use third party
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Ask on the [mailing list](http://groups.google.com/group/juwelier-rb) for feedback on your proposal, to see if somebody else has done it.
-* Check out the [issue tracker](http://github.com/technicalpickles/juwelier/issues) to make sure someone already hasn't requested it and/or contributed it
+* Check out the [issue tracker](http://github.com/flajann2/juwelier/issues) to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
 * Start a feature/bugfix branch
 * Commit and push until you are happy with your contribution
