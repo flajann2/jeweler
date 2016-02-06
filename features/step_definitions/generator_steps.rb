@@ -55,7 +55,7 @@ end
 Given /^I have configured git sanely$/ do
   @user_email = 'bar@example.com'
   @user_name = 'foo'
-  @github_user = 'technicalpickles'
+  @github_user = 'flajann2'
 
   require 'git'
   Git.stubs(:global_config).
@@ -308,7 +308,7 @@ end
 Then /^git repository '(.*)' remote should be '(.*)'/ do |remote, remote_url|
   remote = @repo.remotes.first
 
-  assert_equal 'git@github.com:technicalpickles/the-perfect-gem.git', remote.url
+  assert_equal 'git@github.com:flajann2/the-perfect-gem.git', remote.url
 end
 
 Then /^a commit with the message '(.*)' is made$/ do |message|

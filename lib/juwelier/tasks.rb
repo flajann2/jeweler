@@ -24,8 +24,8 @@ class Juwelier
   #   Juwelier::Tasks.new do |gem|
   #     gem.name = "juwelier"
   #     gem.summary = "Simple and opinionated helper for creating RubyGem projects on GitHub"
-  #     gem.email = "josh@technicalpickles.com"
-  #     gem.homepage = "http://github.com/technicalpickles/juwelier"
+  #     gem.email = "fred.mitchell@gmx.com"
+  #     gem.homepage = "http://github.com/flajann2/juwelier"
   #     gem.description = "Simple and opinionated helper for creating RubyGem projects on GitHub"
   #     gem.authors = ["Josh Nichols"]
   #   end

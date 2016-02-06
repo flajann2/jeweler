@@ -6,8 +6,8 @@ require 'juwelier/version'
 #
 # See Juwelier::Tasks for examples of how to get started. Additionally, resources are available on the wiki:
 #
-# * http://wiki.github.com/technicalpickles/juwelier/create-a-new-project
-# * http://wiki.github.com/technicalpickles/juwelier/configure-an-existing-project
+# * http://wiki.github.com/flajann2/juwelier/create-a-new-project
+# * http://wiki.github.com/flajann2/juwelier/configure-an-existing-project
 class Juwelier
   require 'juwelier/errors'
   require 'rubygems/user_interaction'

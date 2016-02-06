@@ -19,7 +19,7 @@ Feature: generated Rakefile
     And Rakefile has 'bar@example.com' for the Juwelier::Tasks email
     And Rakefile has 'zomg, so good' for the Juwelier::Tasks summary
     And Rakefile has 'Descriptive' for the Juwelier::Tasks description
-    And Rakefile has 'http://github.com/technicalpickles/the-perfect-gem' for the Juwelier::Tasks homepage
+    And Rakefile has 'http://github.com/flajann2/the-perfect-gem' for the Juwelier::Tasks homepage
     And Rakefile has 'MIT' for the Juwelier::Tasks license
     And Rakefile instantiates a Juwelier::RubygemsDotOrgTasks
     And Rakefile has a magic comment for UTF-8

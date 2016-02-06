@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.authors = ["Fred Mitchell", "Josh Nichols", "Yusuke Murata"]
   s.date = "2016-02-06"
   s.description = "Simple and opinionated helper for creating Rubygem projects on GitHub"
-  s.email = ["fred.mitchell@gmx.de", "josh@technicalpickles.com", "info@muratayusuke.com"]
+  s.email = ["fred.mitchell@gmx.de", "fred.mitchell@gmx.com", "info@muratayusuke.com"]
   s.executables = ["juwelier"]
   s.extra_rdoc_files = [
     "ChangeLog.markdown",
@@ -186,8 +186,9 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "http://github.com/flajann2/juwelier"
   s.licenses = ["MIT"]
+  s.required_ruby_version = Gem::Requirement.new(">= 2.0")
   s.rubygems_version = "2.5.1"
-  s.summary = "Opinionated tool for creating and managing RubyGem projects"
+  s.summary = "Powerful and Opinionated tool for creating and managing RubyGem projects"
 
   if s.respond_to? :specification_version then
     s.specification_version = 4

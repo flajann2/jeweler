@@ -119,7 +119,7 @@ You can customize your gem by updating your `Rakefile`. With a newly generated p
       gem.name = "whatwhatwhat"
       gem.summary = %Q{TODO: one-line summary of your gem}
       gem.description = %Q{TODO: longer description of your gem}
-      gem.email = "josh@flajann2.com"
+      gem.email = "fred.mitchell@gmx.com"
       gem.homepage = "http://github.com/flajann2/whatwhatwhat"
   Juwelier    gem.authors = ["Joshua Nichols"]
     end
@@ -141,7 +141,7 @@ This is a one line summary of your gem. This is displayed, for example, when you
 
 Description is a longer description. Scholars ascertain that knowledge of where the description is used was lost centuries ago.
 
-    gem.email = "josh@flajann2.com"
+    gem.email = "fred.mitchell@gmx.com"
 
 This should be a way to get a hold of you regarding the gem.
 

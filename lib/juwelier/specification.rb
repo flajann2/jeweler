@@ -99,7 +99,7 @@ end
 
 
 # Workaround for cloning/duping a Gem::Specification
-# documented in http://github.com/technicalpickles/juwelier/issues#issue/73
+# documented in http://github.com/flajann2/juwelier/issues#issue/73
 Gem::Specification.class_eval do
   def initialize_copy(original)
     super

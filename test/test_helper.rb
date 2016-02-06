@@ -61,8 +61,8 @@ class Test::Unit::TestCase
     Gem::Specification.new do |s|
       s.name = "bar"
       s.summary = "Simple and opinionated helper for creating Rubygem projects on GitHub"
-      s.email = "josh@technicalpickles.com"
-      s.homepage = "http://github.com/technicalpickles/juwelier"
+      s.email = "fred.mitchell@gmx.com"
+      s.homepage = "http://github.com/flajann2/juwelier"
       s.description = "Simple and opinionated helper for creating Rubygem projects on GitHub"
       s.authors = ["Josh Nichols"]
       s.files = FileList[*files] unless files.empty?
@@ -165,7 +165,7 @@ class Test::Unit::TestCase
     @project_name = 'the-perfect-gem'
     @git_name = 'foo'
     @git_email = 'bar@example.com'
-    @github_user = 'technicalpickles'
+    @github_user = 'flajann2'
   end
 
   def valid_git_config

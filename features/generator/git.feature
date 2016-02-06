@@ -9,7 +9,7 @@ Feature: git support
     When I generate a project named 'the-perfect-gem' that is 'zomg, so good'
 
     Then git repository has 'origin' remote
-    And git repository 'origin' remote should be 'git@github.com:technicalpickles/the-perfect-gem.git'
+    And git repository 'origin' remote should be 'git@github.com:flajann2/the-perfect-gem.git'
 
   Scenario: .gitignore
     Given a working directory
