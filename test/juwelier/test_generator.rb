@@ -11,7 +11,7 @@ class TestGenerator < Test::Unit::TestCase
     }.merge(options)
 
     options[:testing_framework] = testing_framework
-    Jeweler::Generator.new(options)
+    Juwelier::Generator.new(options)
   end
 
   should "have the correct constant name" do

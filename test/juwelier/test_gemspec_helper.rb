@@ -8,18 +8,18 @@ class TestGemspecHelper < Test::Unit::TestCase
   context "given a gemspec" do
     setup do
       @spec = build_spec
-      @helper = Jeweler::GemSpecHelper.new(@spec, File.dirname(__FILE__))
+      @helper = Juwelier::GemSpecHelper.new(@spec, File.dirname(__FILE__))
     end
 
     should 'have sane gemspec path' do
-      assert_equal "test/jeweler/#{@spec.name}.gemspec", @helper.path
+      assert_equal "test/juwelier/#{@spec.name}.gemspec", @helper.path
     end
   end
 
   context "#write" do
     setup do
       @spec = build_spec
-      @helper = Jeweler::GemSpecHelper.new(@spec, File.dirname(__FILE__))
+      @helper = Juwelier::GemSpecHelper.new(@spec, File.dirname(__FILE__))
       FileUtils.rm_f(@helper.path)
 
       @helper.write

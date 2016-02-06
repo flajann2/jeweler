@@ -1,12 +1,12 @@
 require 'test_helper'
 
-class TestJeweler < Test::Unit::TestCase
+class TestJuwelier < Test::Unit::TestCase
 
-  def build_jeweler(base_dir = nil)
+  def build_juwelier(base_dir = nil)
     base_dir ||= git_dir_path
     FileUtils.mkdir_p base_dir
 
-    Jeweler.new(build_spec, base_dir)
+    Juwelier.new(build_spec, base_dir)
   end
 
   def git_dir_path
@@ -30,97 +30,97 @@ class TestJeweler < Test::Unit::TestCase
   end
 
   should "raise an error if a nil gemspec is given" do
-    assert_raises Jeweler::GemspecError do
-      Jeweler.new(nil)
+    assert_raises Juwelier::GemspecError do
+      Juwelier.new(nil)
     end
   end
 
   should "know if it is in a git repo" do
     build_git_dir
 
-    assert build_jeweler(git_dir_path).in_git_repo?
+    assert build_juwelier(git_dir_path).in_git_repo?
   end
 
   should "know if it is not in a git repo" do
     build_non_git_dir
 
-    jeweler = build_jeweler(non_git_dir_path)
-    assert ! jeweler.in_git_repo?, "jeweler doesn't know that #{jeweler.base_dir} is not a git repository"
+    juwelier = build_juwelier(non_git_dir_path)
+    assert ! juwelier.in_git_repo?, "juwelier doesn't know that #{juwelier.base_dir} is not a git repository"
   end
 
   should "find the base repo" do
-    jeweler = build_jeweler(File.dirname(File.expand_path(__FILE__)))
-    assert_equal File.dirname(File.dirname(File.expand_path(__FILE__))), jeweler.git_base_dir
+    juwelier = build_juwelier(File.dirname(File.expand_path(__FILE__)))
+    assert_equal File.dirname(File.dirname(File.expand_path(__FILE__))), juwelier.git_base_dir
   end
 
   should "build and run write gemspec command when writing gemspec" do
-    jeweler = build_jeweler
+    juwelier = build_juwelier
 
     command = Object.new
     mock(command).run
 
-    mock(Jeweler::Commands::WriteGemspec).build_for(jeweler) { command }
+    mock(Juwelier::Commands::WriteGemspec).build_for(juwelier) { command }
 
-    jeweler.write_gemspec
+    juwelier.write_gemspec
   end
 
   should "build and run validate gemspec command when validating gemspec" do
-    jeweler = build_jeweler
+    juwelier = build_juwelier
 
     command = Object.new
     mock(command).run
 
-    mock(Jeweler::Commands::ValidateGemspec).build_for(jeweler) { command }
+    mock(Juwelier::Commands::ValidateGemspec).build_for(juwelier) { command }
 
-    jeweler.validate_gemspec
+    juwelier.validate_gemspec
   end
 
   should "build and run build gem command when building gem" do
-    jeweler = build_jeweler
+    juwelier = build_juwelier
 
     command = Object.new
     mock(command).run
 
-    mock(Jeweler::Commands::BuildGem).build_for(jeweler) { command }
+    mock(Juwelier::Commands::BuildGem).build_for(juwelier) { command }
 
-    jeweler.build_gem
+    juwelier.build_gem
   end
 
   should "build and run build gem command when installing gem" do
-    jeweler = build_jeweler
+    juwelier = build_juwelier
 
     command = Object.new
     mock(command).run
 
-    mock(Jeweler::Commands::InstallGem).build_for(jeweler) { command }
+    mock(Juwelier::Commands::InstallGem).build_for(juwelier) { command }
 
-    jeweler.install_gem
+    juwelier.install_gem
   end
 
   should "build and run bump major version command when bumping major version" do
-    jeweler = build_jeweler
+    juwelier = build_juwelier
 
     command = Object.new
     mock(command).run
 
-    mock(Jeweler::Commands::Version::BumpMajor).build_for(jeweler) { command }
+    mock(Juwelier::Commands::Version::BumpMajor).build_for(juwelier) { command }
 
-    jeweler.bump_major_version
+    juwelier.bump_major_version
   end
 
   should "build and run bump minor version command when bumping minor version" do
-    jeweler = build_jeweler
+    juwelier = build_juwelier
 
     command = Object.new
     mock(command).run
 
-    mock(Jeweler::Commands::Version::BumpMinor).build_for(jeweler) { command }
+    mock(Juwelier::Commands::Version::BumpMinor).build_for(juwelier) { command }
 
-    jeweler.bump_minor_version
+    juwelier.bump_minor_version
   end
 
   should "build and run write version command when writing version" do
-    jeweler = build_jeweler
+    juwelier = build_juwelier
 
     command = Object.new
     mock(command).run
@@ -129,49 +129,49 @@ class TestJeweler < Test::Unit::TestCase
     mock(command).patch=(2)
     mock(command).build=('a1')
 
-    mock(Jeweler::Commands::Version::Write).build_for(jeweler) { command }
+    mock(Juwelier::Commands::Version::Write).build_for(juwelier) { command }
 
-    jeweler.write_version(1, 5, 2, 'a1')
+    juwelier.write_version(1, 5, 2, 'a1')
   end
 
   should "build and run release to github command when running release_gemspec" do
-    jeweler = build_jeweler
+    juwelier = build_juwelier
     args = {}
 
     command = Object.new
     mock(command).run(args)
 
-    mock(Jeweler::Commands::ReleaseGemspec).build_for(jeweler) { command }
+    mock(Juwelier::Commands::ReleaseGemspec).build_for(juwelier) { command }
 
-    jeweler.release_gemspec(args)
+    juwelier.release_gemspec(args)
   end
 
   should "build and run release to git command when running release_to_git" do
-    jeweler = build_jeweler
+    juwelier = build_juwelier
     args = {}
 
     command = Object.new
     mock(command).run(args)
 
-    mock(Jeweler::Commands::ReleaseToGit).build_for(jeweler) { command }
+    mock(Juwelier::Commands::ReleaseToGit).build_for(juwelier) { command }
 
-    jeweler.release_to_git(args)
+    juwelier.release_to_git(args)
   end
 
   should "respond to gemspec_helper" do
-    assert_respond_to build_jeweler, :gemspec_helper
+    assert_respond_to build_juwelier, :gemspec_helper
   end
 
   should "respond to version_helper" do
-    assert_respond_to build_jeweler, :version_helper
+    assert_respond_to build_juwelier, :version_helper
   end
 
   should "respond to repo" do
-    assert_respond_to build_jeweler, :repo
+    assert_respond_to build_juwelier, :repo
   end
 
   should "respond to commit" do
-    assert_respond_to build_jeweler, :commit
+    assert_respond_to build_juwelier, :commit
   end
 
 end

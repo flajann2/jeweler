@@ -13,7 +13,7 @@ class TestApplication < Test::Unit::TestCase
 
     result = nil
     begin
-      result = Jeweler::Generator::Application.run!(*arguments)
+      result = Juwelier::Generator::Application.run!(*arguments)
     ensure
       $stdout = original_stdout
       $stderr = original_stderr
@@ -40,11 +40,11 @@ class TestApplication < Test::Unit::TestCase
 
   context "when options indicate version" do
     setup do
-      stub(Jeweler::Generator::Application).build_opts do
+      stub(Juwelier::Generator::Application).build_opts do
         stub_options(:show_version => true)
       end
 
-      stub(Jeweler::Generator).new { raise "Shouldn't have made this far"}
+      stub(Juwelier::Generator).new { raise "Shouldn't have made this far"}
 
       assert_nothing_raised do
         @result = run_application("-v")
@@ -61,11 +61,11 @@ class TestApplication < Test::Unit::TestCase
 
   context "when options indicate help usage" do
     setup do
-      stub(Jeweler::Generator::Application).build_opts do
+      stub(Juwelier::Generator::Application).build_opts do
         stub_options(:show_help => true)
       end
 
-      stub(Jeweler::Generator).new { raise "Shouldn't have made this far"}
+      stub(Juwelier::Generator).new { raise "Shouldn't have made this far"}
 
       assert_nothing_raised do
         @result = run_application("-h")
@@ -85,11 +85,11 @@ class TestApplication < Test::Unit::TestCase
 
   context "when options indicate an invalid argument" do
     setup do
-      stub(Jeweler::Generator::Application).build_opts do
+      stub(Juwelier::Generator::Application).build_opts do
         stub_options(:invalid_argument => '--invalid-argument')
       end
 
-      stub(Jeweler::Generator).new { raise "Shouldn't have made this far"}
+      stub(Juwelier::Generator).new { raise "Shouldn't have made this far"}
 
       assert_nothing_raised do
         @result = run_application("--invalid-argument")
@@ -116,11 +116,11 @@ class TestApplication < Test::Unit::TestCase
     setup do
       @generator = "generator"
       stub(@generator).run
-      stub(Jeweler::Generator).new { @generator }
+      stub(Juwelier::Generator).new { @generator }
 
-      @jeweler_options = stub_options :project_name => 'zomg'
-      stub(Jeweler::Generator::Application).build_options do
-        @jeweler_options
+      @juwelier_options = stub_options :project_name => 'zomg'
+      stub(Juwelier::Generator::Application).build_options do
+        @juwelier_options
       end
 
       assert_nothing_raised do
@@ -131,7 +131,7 @@ class TestApplication < Test::Unit::TestCase
     should_exit_with_code 0
 
     should "create generator with options" do
-      assert_received(Jeweler::Generator) {|subject| subject.new(@jeweler_options) }
+      assert_received(Juwelier::Generator) {|subject| subject.new(@juwelier_options) }
     end
 
     should "run generator" do

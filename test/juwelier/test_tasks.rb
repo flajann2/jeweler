@@ -4,10 +4,10 @@ require 'rake'
 class TestTasks < Test::Unit::TestCase
   include Rake
 
-  context 'instantiating Jeweler::Tasks' do
+  context 'instantiating Juwelier::Tasks' do
     setup do
       @gemspec_building_block = lambda {|gemspec|}
-      @tasks = Jeweler::Tasks.new &@gemspec_building_block
+      @tasks = Juwelier::Tasks.new &@gemspec_building_block
     end
 
     teardown do
@@ -18,32 +18,32 @@ class TestTasks < Test::Unit::TestCase
       assert_not_nil @tasks.gemspec
     end
 
-    should 'not eagerly initialize Jeweler' do
-      assert ! @tasks.instance_variable_defined?(:@jeweler)
+    should 'not eagerly initialize Juwelier' do
+      assert ! @tasks.instance_variable_defined?(:@juwelier)
     end
 
-    should 'set self as the application-wide jeweler tasks' do
-      assert_same @tasks, Rake.application.jeweler_tasks
+    should 'set self as the application-wide juwelier tasks' do
+      assert_same @tasks, Rake.application.juwelier_tasks
     end
 
     should 'save gemspec building block for later' do
       assert_same @gemspec_building_block, @tasks.gemspec_building_block
     end
 
-    context 'Jeweler instance' do
+    context 'Juwelier instance' do
       setup do
-        @tasks.jeweler
+        @tasks.juwelier
       end
 
-      should 'initailize Jeweler' do
-        assert @tasks.instance_variable_defined?(:@jeweler)
+      should 'initailize Juwelier' do
+        assert @tasks.instance_variable_defined?(:@juwelier)
       end
     end
 
     should 'yield the gemspec instance' do
       spec = nil
-      @tasks = Jeweler::Tasks.new { |s| spec = s }
-      assert_not_nil @tasks.jeweler.gemspec
+      @tasks = Juwelier::Tasks.new { |s| spec = s }
+      assert_not_nil @tasks.juwelier.gemspec
     end
 
   end

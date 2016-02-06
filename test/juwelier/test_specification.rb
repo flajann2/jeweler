@@ -9,18 +9,18 @@ class TestSpecification < Test::Unit::TestCase
     @project.destroy!
   end
 
-  def build_jeweler_gemspec(&block)
+  def build_juwelier_gemspec(&block)
     gemspec = if block
                 Gem::Specification.new(&block)
               else
                 Gem::Specification.new()
               end
-    gemspec.extend(Jeweler::Specification)
+    gemspec.extend(Juwelier::Specification)
     gemspec
   end
 
   should "be able to use to_ruby on a duped gemspec without error" do
-    gemspec = build_jeweler_gemspec
+    gemspec = build_juwelier_gemspec
     gemspec.files.include 'throwaway value'
 
     gemspec.dup.to_ruby
@@ -28,7 +28,7 @@ class TestSpecification < Test::Unit::TestCase
 
   context "basic defaults" do
     setup do
-      @gemspec = build_jeweler_gemspec
+      @gemspec = build_juwelier_gemspec
     end
 
     should "make files a FileList" do
@@ -48,8 +48,8 @@ class TestSpecification < Test::Unit::TestCase
 
     context "and there hasn't been any set on the gemspec" do
       setup do
-        @gemspec = build_jeweler_gemspec
-        @gemspec.set_jeweler_defaults(@project)
+        @gemspec = build_juwelier_gemspec
+        @gemspec.set_juwelier_defaults(@project)
       end
 
 
@@ -60,10 +60,10 @@ class TestSpecification < Test::Unit::TestCase
 
     context "and has been previously set executables" do
       setup do
-        @gemspec  = build_jeweler_gemspec do |gemspec|
+        @gemspec  = build_juwelier_gemspec do |gemspec|
           gemspec.executables = %w(non-existant)
         end
-        @gemspec.set_jeweler_defaults(@project)
+        @gemspec.set_juwelier_defaults(@project)
       end
 
       should "have only the original executables in the gemspec" do
@@ -87,8 +87,8 @@ class TestSpecification < Test::Unit::TestCase
 
     context "and there hasn't been any set on the gemspec" do
       setup do
-        @gemspec  = build_jeweler_gemspec
-        @gemspec.set_jeweler_defaults(@project)
+        @gemspec  = build_juwelier_gemspec
+        @gemspec.set_juwelier_defaults(@project)
       end
 
       should "have the executables under version control in the gemspec" do
@@ -97,10 +97,10 @@ class TestSpecification < Test::Unit::TestCase
     end
     context "and has been previously set executables" do
       setup do
-        @gemspec  = build_jeweler_gemspec do |gemspec|
+        @gemspec  = build_juwelier_gemspec do |gemspec|
           gemspec.executables = %w(burnination)
         end
-        @gemspec.set_jeweler_defaults(@project)
+        @gemspec.set_juwelier_defaults(@project)
       end
       should "have only the original executables in the gemspec" do
         assert_equal %w(burnination), @gemspec.executables
@@ -122,8 +122,8 @@ class TestSpecification < Test::Unit::TestCase
 
     context "and there hasn't been any extensions set on the gemspec" do
       setup do
-        @gemspec  = build_jeweler_gemspec
-        @gemspec.set_jeweler_defaults(@project)
+        @gemspec  = build_juwelier_gemspec
+        @gemspec.set_juwelier_defaults(@project)
       end
 
       should "have all the extconf.rb and mkrf_config.rb files in extensions" do
@@ -150,8 +150,8 @@ class TestSpecification < Test::Unit::TestCase
 
     context "and the files defaults are used" do
       setup do
-        @gemspec  = build_jeweler_gemspec
-        @gemspec.set_jeweler_defaults(@project, @project)
+        @gemspec  = build_juwelier_gemspec
+        @gemspec.set_juwelier_defaults(@project, @project)
       end
 
       should "populate files from git" do
@@ -161,10 +161,10 @@ class TestSpecification < Test::Unit::TestCase
 
     context "and the files specified manually" do
       setup do
-        @gemspec  = build_jeweler_gemspec do |gemspec|
+        @gemspec  = build_juwelier_gemspec do |gemspec|
           gemspec.files = %w(Rakefile)
         end
-        @gemspec.set_jeweler_defaults(@project, @project)
+        @gemspec.set_juwelier_defaults(@project, @project)
       end
 
       should "not be overridden by files from git" do
@@ -190,8 +190,8 @@ class TestSpecification < Test::Unit::TestCase
       repo.commit('Initial commit')
 
 
-      @gemspec  = build_jeweler_gemspec
-      @gemspec.set_jeweler_defaults(@project, @project)
+      @gemspec  = build_juwelier_gemspec
+      @gemspec.set_juwelier_defaults(@project, @project)
     end
 
     should "populate files from git excluding ignored and .gitignore" do
@@ -217,8 +217,8 @@ class TestSpecification < Test::Unit::TestCase
       repo.add('.')
       repo.commit('Initial commit')
 
-      @gemspec  = build_jeweler_gemspec
-      @gemspec.set_jeweler_defaults(@subproject, @project)
+      @gemspec  = build_juwelier_gemspec
+      @gemspec.set_juwelier_defaults(@subproject, @project)
     end
 
     should "populate files from git relative to sub directory" do
@@ -233,8 +233,8 @@ class TestSpecification < Test::Unit::TestCase
         lib.file 'example.rb'
       end
 
-      @gemspec  = build_jeweler_gemspec
-      @gemspec.set_jeweler_defaults(@project, @project)
+      @gemspec  = build_juwelier_gemspec
+      @gemspec.set_juwelier_defaults(@project, @project)
     end
 
     should "not populate files" do

@@ -11,8 +11,8 @@ class TestGeneratorInitialization < Test::Unit::TestCase
     end
 
     should 'raise NoGithubRepoNameGiven' do
-      assert_raise Jeweler::NoGitHubRepoNameGiven do
-        Jeweler::Generator.new()
+      assert_raise Juwelier::NoGitHubRepoNameGiven do
+        Juwelier::Generator.new()
       end
     end
   end
@@ -23,8 +23,8 @@ class TestGeneratorInitialization < Test::Unit::TestCase
     end
 
     should 'raise an NoGitUserName' do
-      assert_raise Jeweler::NoGitUserName do
-        Jeweler::Generator.new(:project_name => @project_name, :testing_framework => :shoulda, :documentation_framework => :rdoc)
+      assert_raise Juwelier::NoGitUserName do
+        Juwelier::Generator.new(:project_name => @project_name, :testing_framework => :shoulda, :documentation_framework => :rdoc)
       end
     end
   end
@@ -35,8 +35,8 @@ class TestGeneratorInitialization < Test::Unit::TestCase
     end
 
     should 'raise NoGitUserEmail' do
-      assert_raise Jeweler::NoGitUserEmail do
-        Jeweler::Generator.new(:project_name => @project_name, :user_name => @git_name, :testing_framework => :shoulda, :documentation_framework => :rdoc)
+      assert_raise Juwelier::NoGitUserEmail do
+        Juwelier::Generator.new(:project_name => @project_name, :user_name => @git_name, :testing_framework => :shoulda, :documentation_framework => :rdoc)
       end
     end
   end
@@ -47,8 +47,8 @@ class TestGeneratorInitialization < Test::Unit::TestCase
     end
 
     should 'raise NotGitHubUser' do
-      assert_raise Jeweler::NoGitHubUser do
-        Jeweler::Generator.new(:project_name => @project_name, :user_name => @git_name, :user_email => @git_email, :testing_framework => :shoulda, :documentation_framework => :rdoc)
+      assert_raise Juwelier::NoGitHubUser do
+        Juwelier::Generator.new(:project_name => @project_name, :user_name => @git_name, :user_email => @git_email, :testing_framework => :shoulda, :documentation_framework => :rdoc)
       end
     end
   end
@@ -61,7 +61,7 @@ class TestGeneratorInitialization < Test::Unit::TestCase
                  :documentation_framework =>       :rdoc }
 
     options = defaults.merge(options)
-    Jeweler::Generator.new(options) 
+    Juwelier::Generator.new(options) 
   end
 
   context "default configuration" do

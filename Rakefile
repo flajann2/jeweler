@@ -12,23 +12,23 @@ rescue Bundler::BundlerError => e
 end
 
 require 'rake'
-require 'jeweler'
+require 'juwelier'
 
-Jeweler::Tasks.new do |gem|
-  gem.name = "jeweler"
-  gem.version = Jeweler::Version::STRING
-  gem.homepage = "http://github.com/technicalpickles/jeweler"
+Juwelier::Tasks.new do |gem|
+  gem.name = "juwelier"
+  gem.version = Juwelier::Version::STRING
+  gem.homepage = "http://github.com/technicalpickles/juwelier"
   gem.summary = "Opinionated tool for creating and managing RubyGem projects"
   gem.description = "Simple and opinionated helper for creating Rubygem projects on GitHub"
   gem.license = "MIT"
   gem.authors = ["Josh Nichols", "Yusuke Murata"]
   gem.email = ["josh@technicalpickles.com", "info@muratayusuke.com"]
-  gem.files.include %w(lib/jeweler/templates/.document lib/jeweler/templates/.gitignore)
+  gem.files.include %w(lib/juwelier/templates/.document lib/juwelier/templates/.gitignore)
 
   # dependencies defined in Gemfile
 end
 
-Jeweler::RubygemsDotOrgTasks.new
+Juwelier::RubygemsDotOrgTasks.new
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
@@ -42,7 +42,7 @@ end
 
 namespace :test do
   task :gemspec_dup do
-    gemspec = Rake.application.jeweler.gemspec
+    gemspec = Rake.application.juwelier.gemspec
     dupped_gemspec = gemspec.dup
     cloned_gemspec = gemspec.clone
     puts gemspec.to_ruby
@@ -52,7 +52,7 @@ end
 
 require 'yard'
 YARD::Rake::YardocTask.new do |t|
-  t.files   = FileList['lib/**/*.rb'].exclude('lib/jeweler/templates/**/*.rb')
+  t.files   = FileList['lib/**/*.rb'].exclude('lib/juwelier/templates/**/*.rb')
 end
 
 require 'cucumber/rake/task'

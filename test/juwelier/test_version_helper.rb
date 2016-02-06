@@ -40,7 +40,7 @@ class TestVersionHelper < Test::Unit::TestCase
 
       build_version_yml VERSION_TMP_DIR, 3, 5, 4
 
-      @version_helper = Jeweler::VersionHelper.new VERSION_TMP_DIR
+      @version_helper = Juwelier::VersionHelper.new VERSION_TMP_DIR
     end
 
     should_have_version 3, 5, 4
@@ -68,7 +68,7 @@ class TestVersionHelper < Test::Unit::TestCase
 
       build_version_yml VERSION_TMP_DIR, 3, 5, 4, 'a1'
 
-      @version_helper = Jeweler::VersionHelper.new VERSION_TMP_DIR
+      @version_helper = Juwelier::VersionHelper.new VERSION_TMP_DIR
     end
 
     should_have_version 3, 5, 4, 'a1'
@@ -96,7 +96,7 @@ class TestVersionHelper < Test::Unit::TestCase
 
       build_version_plaintext VERSION_TMP_DIR, 3, 5, 4
 
-      @version_helper = Jeweler::VersionHelper.new VERSION_TMP_DIR
+      @version_helper = Juwelier::VersionHelper.new VERSION_TMP_DIR
     end
 
     should_have_version 3, 5, 4
@@ -124,7 +124,7 @@ class TestVersionHelper < Test::Unit::TestCase
 
       build_version_plaintext VERSION_TMP_DIR, 3, 5, 4, 'a1'
 
-      @version_helper = Jeweler::VersionHelper.new VERSION_TMP_DIR
+      @version_helper = Juwelier::VersionHelper.new VERSION_TMP_DIR
     end
 
     should_have_version 3, 5, 4, 'a1'
@@ -152,14 +152,14 @@ class TestVersionHelper < Test::Unit::TestCase
     end
 
     should "not raise error if the VERSION.yml doesn't exist" do
-      assert_nothing_raised Jeweler::VersionYmlError do
-        Jeweler::VersionHelper.new(VERSION_TMP_DIR)
+      assert_nothing_raised Juwelier::VersionYmlError do
+        Juwelier::VersionHelper.new(VERSION_TMP_DIR)
       end
     end
 
     context "setting an initial version" do
       setup do
-        @version_helper = Jeweler::VersionHelper.new(VERSION_TMP_DIR)
+        @version_helper = Juwelier::VersionHelper.new(VERSION_TMP_DIR)
         @version_helper.update_to 0, 0, 1
       end
 
@@ -182,7 +182,7 @@ class TestVersionHelper < Test::Unit::TestCase
 
         context "re-reading VERSION" do
           setup do
-            @version_helper = Jeweler::VersionHelper.new(VERSION_TMP_DIR)
+            @version_helper = Juwelier::VersionHelper.new(VERSION_TMP_DIR)
           end
 
           should_have_version 0, 0, 1
