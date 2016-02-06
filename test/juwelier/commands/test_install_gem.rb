@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Jeweler
+class Juwelier
   module Commands
     class TestInstallGem < Test::Unit::TestCase
       rubyforge_command_context "running" do
@@ -17,9 +17,9 @@ class Jeweler
         end
       end
 
-      build_command_context "build for jeweler" do
+      build_command_context "build for juwelier" do
         setup do
-          @command = Jeweler::Commands::InstallGem.build_for(@jeweler)
+          @command = Juwelier::Commands::InstallGem.build_for(@juwelier)
         end
 
         should "assign gemspec helper" do

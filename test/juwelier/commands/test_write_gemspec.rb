@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Jeweler
+class Juwelier
   module Commands
     class TestWriteGemspec < Test::Unit::TestCase
 
@@ -18,7 +18,7 @@ class Jeweler
           stub(@version_helper).to_s  { '1.2.3' }
           stub(@version_helper).refresh
 
-          @command = Jeweler::Commands::WriteGemspec.new
+          @command = Juwelier::Commands::WriteGemspec.new
           @command.base_dir = 'tmp'
           @command.version_helper = @version_helper
           @command.gemspec = @gemspec
@@ -64,9 +64,9 @@ class Jeweler
 
       end
 
-      build_command_context "building for jeweler" do
+      build_command_context "building for juwelier" do
         setup do
-          @command = Jeweler::Commands::WriteGemspec.build_for(@jeweler)
+          @command = Juwelier::Commands::WriteGemspec.build_for(@juwelier)
         end
 
         should "assign base_dir" do
@@ -94,7 +94,7 @@ class Jeweler
         end
 
         should "return WriteGemspec" do
-          assert_kind_of Jeweler::Commands::WriteGemspec, @command
+          assert_kind_of Juwelier::Commands::WriteGemspec, @command
         end
       end
 

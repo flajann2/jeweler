@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Jeweler
+class Juwelier
   module Commands
     class TestReleaseToGit < Test::Unit::TestCase
 
@@ -139,9 +139,9 @@ class Jeweler
       end
 
 
-      build_command_context "building from jeweler" do
+      build_command_context "building from juwelier" do
         setup do
-          @command = Jeweler::Commands::ReleaseToGit.build_for(@jeweler)
+          @command = Juwelier::Commands::ReleaseToGit.build_for(@juwelier)
         end
 
         should "assign gemspec" do
@@ -175,7 +175,7 @@ class Jeweler
       #  should "be false if there added files" do
       #    repo = build_repo :added => %w(README)
 
-      #    command = Jeweler::Commands::ReleaseToGit.new :repo => repo
+      #    command = Juwelier::Commands::ReleaseToGit.new :repo => repo
 
       #    assert ! command.clean_staging_area?
       #  end
@@ -183,7 +183,7 @@ class Jeweler
       #  should "be false if there are changed files" do
       #    repo = build_repo :changed => %w(README)
 
-      #    command = Jeweler::Commands::ReleaseToGit.new
+      #    command = Juwelier::Commands::ReleaseToGit.new
       #    command.repo = repo
 
       #    assert ! command.clean_staging_area?
@@ -192,7 +192,7 @@ class Jeweler
       #  should "be false if there are deleted files" do
       #    repo = build_repo :deleted => %w(README)
 
-      #    command = Jeweler::Commands::ReleaseToGit.new
+      #    command = Juwelier::Commands::ReleaseToGit.new
       #    command.repo = repo
 
       #    assert ! command.clean_staging_area?
@@ -201,7 +201,7 @@ class Jeweler
       #  should "be true if nothing added, changed, or deleted" do
       #    repo = build_repo
 
-      #    command = Jeweler::Commands::ReleaseToGit.new
+      #    command = Juwelier::Commands::ReleaseToGit.new
       #    command.repo = repo
 
       #    assert command.clean_staging_area?
@@ -215,7 +215,7 @@ class Jeweler
 
           @output = StringIO.new
 
-          @command                = Jeweler::Commands::ReleaseToGit.new
+          @command                = Juwelier::Commands::ReleaseToGit.new
           @command.output         = @output
           @command.repo           = @repo
           @command.version        = '1.2.3'
@@ -236,7 +236,7 @@ class Jeweler
 
           @output = StringIO.new
 
-          @command                = Jeweler::Commands::ReleaseToGit.new
+          @command                = Juwelier::Commands::ReleaseToGit.new
           @command.output         = @output
           @command.repo           = @repo
           @command.version        = '1.2.3'

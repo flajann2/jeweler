@@ -1,7 +1,7 @@
 require 'test_helper'
-require 'jeweler/commands/build_gem'
+require 'juwelier/commands/build_gem'
 
-class Jeweler
+class Juwelier
   module Commands
     class TestBuildGem < Test::Unit::TestCase
 
@@ -57,21 +57,21 @@ class Jeweler
         
       end
 
-      build_command_context "build for jeweler" do
+      build_command_context "build for juwelier" do
         setup do
-          @command = Jeweler::Commands::BuildGem.build_for(@jeweler)
+          @command = Juwelier::Commands::BuildGem.build_for(@juwelier)
         end
 
         should "assign base_dir" do
-          assert_same @base_dir, @jeweler.base_dir
+          assert_same @base_dir, @juwelier.base_dir
         end
 
         should "assign gemspec_helper" do
-          assert_same @gemspec_helper, @jeweler.gemspec_helper
+          assert_same @gemspec_helper, @juwelier.gemspec_helper
         end
 
         should "return BuildGem" do
-          assert_kind_of Jeweler::Commands::BuildGem, @command
+          assert_kind_of Juwelier::Commands::BuildGem, @command
         end
       end
       
@@ -84,7 +84,7 @@ class Jeweler
         stub(@gemspec_helper).update_version
         stub(@gemspec_helper).has_version? { has_version }
 
-        @version_helper = "Jeweler::VersionHelper"
+        @version_helper = "Juwelier::VersionHelper"
 
         @builder = Object.new
         if Gem::Version.new(`gem -v`) >= Gem::Version.new("2.0.0.a")
@@ -100,7 +100,7 @@ class Jeweler
 
         @base_dir = '.'
 
-        @command = Jeweler::Commands::BuildGem.new
+        @command = Juwelier::Commands::BuildGem.new
         @command.base_dir = @base_dir
         @command.file_utils = @file_utils
         @command.gemspec_helper = @gemspec_helper

@@ -1,10 +1,10 @@
 require 'test_helper'
 
-class Jeweler
+class Juwelier
   module Commands
     class TestReleaseToRubygems < Test::Unit::TestCase
       def self.subject
-        Jeweler::Commands::ReleaseToRubygems.new
+        Juwelier::Commands::ReleaseToRubygems.new
       end
 
       gemcutter_command_context "rubyforge_project is defined in gemspec and package exists on rubyforge" do
@@ -20,9 +20,9 @@ class Jeweler
         end
       end
 
-      build_command_context "build for jeweler" do
+      build_command_context "build for juwelier" do
         setup do
-          @command = Jeweler::Commands::ReleaseToRubygems.build_for(@jeweler)
+          @command = Juwelier::Commands::ReleaseToRubygems.build_for(@juwelier)
         end
 
         should "assign gemspec helper" do

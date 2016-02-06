@@ -1,12 +1,12 @@
 require 'test_helper'
 
-class Jeweler
+class Juwelier
   module Commands
     class TestValidateGemspec < Test::Unit::TestCase
 
       build_command_context "build context" do
         setup do
-          @command = Jeweler::Commands::ValidateGemspec.build_for(@jeweler)
+          @command = Juwelier::Commands::ValidateGemspec.build_for(@juwelier)
         end
 
         should "assign gemspec_helper" do
@@ -17,8 +17,8 @@ class Jeweler
           assert_same @output, @command.output
         end
 
-        should "return Jeweler::Commands::ValidateGemspec" do
-          assert_kind_of Jeweler::Commands::ValidateGemspec, @command
+        should "return Juwelier::Commands::ValidateGemspec" do
+          assert_kind_of Juwelier::Commands::ValidateGemspec, @command
         end
 
       end
