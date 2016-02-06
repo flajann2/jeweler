@@ -2,19 +2,30 @@
 
  Provides the noble ruby developer with two primary features:
 
- * a library for managing and releasing RubyGem projects
+ * a library or managing and releasing RubyGem projects
  * a scaffold generator for starting new RubyGem projects
 
 [![Build Status](https://travis-ci.org/flajann2/juwelier.png)](https://travis-ci.org/flajann2/juwelier)
 [![Coverage Status](https://coveralls.io/repos/flajann2/juwelier/badge.png)](https://coveralls.io/r/flajann2/juwelier)
 [![Dependency Status](https://www.versioneye.com/ruby/juwelier/2.0.0/badge.png)](https://www.versioneye.com/ruby/juwelier/2.0.0)
 
- Note that his has been forked from the old Jeweler due to
- lack of maintenance. I need this to work alread with the
- latest Ruby, so I've taken it over.
+ Note that his has been forked from the old Jeweler by Josh Nichols
+ due to lack of maintenance. I need this to work alread with the
+ latest Ruby, so I've taken it over. All is cool because
+ sometimes we move on and loose interest. I wish to thank
+ Josh and others who were behind the original Jeweler for
+ creating this awesome tool.
 
- "Juwelier" is "Jeweler" in German. Since I have made Germany
- my new home, it only seemed approporiate.
+ Note that if you have a preexisting project created with
+ Jeweler, you may have some issues. Eventally I will provide
+ a migration option, but in the meantime, you may wish to
+ run these sed commands on all your files:
+
+    sed -i 's/jeweler/juwelier/g' filename
+    sed -i 's/Jeweler/Juwelier/g' filename
+
+ As you probably know, "Juwelier" is "Jeweler" in German. Since I
+ have made Germany my new home, it only seemed approporiate.
  
 ## Hello, world
 
@@ -223,7 +234,7 @@ A common pattern is to have this in a version constant in your library. This is 
 
  lives inside of Rake. As a result, they are dear friends. But, that friendship doesn't interfere with typical Rake operations.
 
-ThJuwelierat means you can define your own namespaces, tasks, or use third party Rake libraries without cause for concern.
+ The Juwelier Rake means you can define your own namespaces, tasks, or use third party Rake libraries without cause for concern.
 
 ## Contributing to 
 
@@ -238,4 +249,4 @@ ThJuwelierat means you can define your own namespaces, tasks, or use third party
 
 ## Copyright
 
-Copyright (c) 2008-2010 Josh Nichols. See LICENSE for details.
+Copyright (c) 2016 Fred Mitchell. See LICENSE for details.
