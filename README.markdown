@@ -9,6 +9,8 @@
 [![Coverage Status](https://coveralls.io/repos/flajann2/juwelier/badge.png)](https://coveralls.io/r/flajann2/juwelier)
 [![Dependency Status](https://www.versioneye.com/ruby/juwelier/2.0.0/badge.png)](https://www.versioneye.com/ruby/juwelier/2.0.0)
 
+ "Juwelier" is pronounced "you-ve-LEER" (with German inflection! :))
+
  Note that his has been forked from the old Jeweler by Josh Nichols
  due to lack of maintenance. I need this to work alread with the
  latest Ruby, so I've taken it over. All is cool because
@@ -19,12 +21,16 @@
  Note that if you have a preexisting project created with
  Jeweler, you may have some issues. Eventally I will provide
  a migration option, but in the meantime, you may wish to
- run these sed commands on all your files:
+ run this bash script from the root directory of your project:
 
-    sed -i 's/jeweler/juwelier/g' filename
-    sed -i 's/Jeweler/Juwelier/g' filename
-
- As you probably know, "Juwelier" is "Jeweler" in German. Since I
+    for f in $(grep -irl jeweler *)
+    do
+      sed -i 's/jeweler/juwelier/g' $f
+      sed -i 's/Jeweler/Juwelier/g' $f
+    done
+    bundle update
+    
+ As you know, "Juwelier" is "Jeweler" in German. Since I
  have made Germany my new home, it only seemed approporiate.
  
 ## Hello, world
