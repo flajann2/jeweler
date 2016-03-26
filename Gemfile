@@ -8,13 +8,13 @@ gem "highline", ">= 1.6.15"
 gem "bundler", ">= 1.0"
 gem "rdoc"
 gem "builder"
+gem "semver"
 
 group :development do
   gem "yard", ">= 0.8.5"
   gem "bluecloth"
   gem "cucumber", ">= 1.1.4"
   gem "simplecov"
-  gem "semver"
 end
 
 group :test do
