@@ -103,6 +103,7 @@ class Juwelier
       self.should_setup_rubyforge = options[:rubyforge]
       self.should_use_bundler     = options[:use_bundler]
       self.should_use_semver      = options[:use_semver]
+      self.require_ruby_version   = options[:use_required_version]
 
       development_dependencies << ["cucumber", ">= 0"] if should_use_cucumber
 

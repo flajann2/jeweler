@@ -11,6 +11,9 @@ Juwelier::Tasks.new do |gem|
 <% if should_use_semver %>
   gem.version = s_version
 <% end %>
+<% if require_ruby_version %>
+  gem.required_ruby_version = '>= <% require_ruby_version %>'
+<% end %>
 
 <% if should_setup_rubyforge %>
   gem.rubyforge_project = "<%= project_name %>"

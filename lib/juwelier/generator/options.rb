@@ -72,6 +72,10 @@ class Juwelier
             self[:use_semver] = v
           end
 
+          o.on('--required-version [VERSION]', 'require a minimal Ruby version, e.g. 2.0') do |v|
+            self[:use_required_version] = v
+          end
+
           o.on('--cucumber', 'generate cucumber stories in addition to the other tests') do
             self[:use_cucumber] = true
           end

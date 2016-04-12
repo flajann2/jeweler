@@ -180,6 +180,7 @@ Gem::Specification.new do |s|
     "test/juwelier/test_specification.rb",
     "test/juwelier/test_tasks.rb",
     "test/juwelier/test_version_helper.rb",
+    "test/juwelier/version_tmp/VERSION.yml",
     "test/shoulda_macros/juwelier_macros.rb",
     "test/test_helper.rb",
     "test/test_juwelier.rb"
