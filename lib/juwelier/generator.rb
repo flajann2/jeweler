@@ -104,6 +104,7 @@ class Juwelier
       self.should_use_bundler     = options[:use_bundler]
       self.should_use_semver      = options[:use_semver]
       self.require_ruby_version   = options[:use_required_version]
+      self.should_create_bin      = options[:create_bin]
 
       development_dependencies << ["cucumber", ">= 0"] if should_use_cucumber
 
@@ -146,6 +147,10 @@ class Juwelier
       "#{project_name}.rb"
     end
 
+    def bin_filename
+      "#{should_create_bin}"
+    end
+
     def require_name
       self.project_name
     end
@@ -156,6 +161,10 @@ class Juwelier
 
     def lib_dir
       'lib'
+    end
+
+    def bin_dir
+      'bin'
     end
 
     def feature_filename
@@ -197,6 +206,10 @@ class Juwelier
 
       mkdir_in_target           lib_dir
       touch_in_target           File.join(lib_dir, lib_filename)
+
+      if should_create_bin
+      mkdir_in_target           bin_dir
+      touch_in_target           File.join(bin_dir, bin_filename)
 
       mkdir_in_target           test_dir
       output_template_in_target File.join(testing_framework.to_s, 'helper.rb'),

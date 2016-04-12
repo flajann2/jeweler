@@ -76,6 +76,10 @@ class Juwelier
             self[:use_required_version] = v
           end
 
+          o.on('--bin [NAME]', 'create a scaffold for an executable') do |v|
+            self[:create_bin] = v
+          end
+
           o.on('--cucumber', 'generate cucumber stories in addition to the other tests') do
             self[:use_cucumber] = true
           end
