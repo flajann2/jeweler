@@ -5,6 +5,11 @@
  * a library or managing and releasing RubyGem projects
  * a scaffold generator for starting new RubyGem projects
 
+PLEASE NOTE that I have recently taken over the original Jeweler and will be
+maintaining both repos for a while, and eventually converge them to one. In
+the mean time, all new features shall be added to Juwelier, while keeping
+the origial Jeweler up-to-date with the latest Ruby releases.
+
 [![Build Status](https://travis-ci.org/flajann2/juwelier.png)](https://travis-ci.org/flajann2/juwelier)
 [![Coverage Status](https://coveralls.io/repos/flajann2/juwelier/badge.png)](https://coveralls.io/r/flajann2/juwelier)
 [![Dependency Status](https://www.versioneye.com/ruby/juwelier/2.0.0/badge.png)](https://www.versioneye.com/ruby/juwelier/2.0.0)

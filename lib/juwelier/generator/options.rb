@@ -68,6 +68,10 @@ class Juwelier
             self[:use_bundler] = v
           end
 
+          o.on('--[no-]semver', 'use semver for managining gem version') do |v|
+            self[:use_semver] = v
+          end
+
           o.on('--cucumber', 'generate cucumber stories in addition to the other tests') do
             self[:use_cucumber] = true
           end

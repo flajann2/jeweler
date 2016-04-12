@@ -74,6 +74,7 @@ class Juwelier
       end
 
       self.development_dependencies = []
+      self.production_dependencies = []
       self.testing_framework  = options[:testing_framework]
       self.documentation_framework = options[:documentation_framework]
       begin
@@ -101,16 +102,18 @@ class Juwelier
       self.should_use_roodi       = options[:use_roodi]
       self.should_setup_rubyforge = options[:rubyforge]
       self.should_use_bundler     = options[:use_bundler]
+      self.should_use_semver      = options[:use_semver]
 
       development_dependencies << ["cucumber", ">= 0"] if should_use_cucumber
 
-      # TODO make bundler optional?
       development_dependencies << ["bundler", "~> 1.0"]
       development_dependencies << ["juwelier", "~> #{Juwelier::Version::STRING}"]
       development_dependencies << ["simplecov", ">= 0"]
 
       development_dependencies << ["reek", "~> 1.2.8"] if should_use_reek
       development_dependencies << ["roodi", "~> 2.1.0"] if should_use_roodi
+      
+      production_dependencies << ["semver", "~> 1.0.1"] if should_use_semver
 
       self.user_name       = options[:user_name]
       self.user_email      = options[:user_email]

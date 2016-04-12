@@ -8,6 +8,10 @@ Juwelier::Tasks.new do |gem|
   gem.description = %Q{<%= description %>}
   gem.email = "<%= user_email %>"
   gem.authors = ["<%= user_name %>"]
+<% if should_use_semver %>
+  gem.version = s_version
+<% end %>
+
 <% if should_setup_rubyforge %>
   gem.rubyforge_project = "<%= project_name %>"
 <% end %>
