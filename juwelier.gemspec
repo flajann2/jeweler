@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Fred Mitchell", "Josh Nichols", "Yusuke Murata"]
-  s.date = "2016-04-12"
+  s.date = "2016-05-29"
   s.description = "Simple and opinionated helper for creating Rubygem projects on GitHub"
   s.email = ["fred.mitchell@gmx.de", "fred.mitchell@gmx.com", "info@muratayusuke.com"]
   s.executables = ["juwelier"]

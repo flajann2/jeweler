@@ -51,10 +51,10 @@ class Juwelier
                   :description, :project_name, :github_username,
                   :repo, :should_create_remote_repo, 
                   :testing_framework, :documentation_framework,
-                  :should_use_cucumber, :should_use_bundler,
+                  :should_use_cucumber, :should_use_bundler, :should_use_semver,
                   :should_setup_rubyforge, :should_use_reek, :should_use_roodi,
-                  :development_dependencies,
-                  :options,
+                  :development_dependencies, :production_dependencies,
+                  :options, :require_ruby_version, :should_create_bin,
                   :git_remote
 
     def initialize(options = {})
@@ -208,15 +208,15 @@ class Juwelier
       touch_in_target           File.join(lib_dir, lib_filename)
 
       if should_create_bin
-      mkdir_in_target           bin_dir
-      touch_in_target           File.join(bin_dir, bin_filename)
+        mkdir_in_target           bin_dir
+        touch_in_target           File.join(bin_dir, bin_filename)
 
-      mkdir_in_target           test_dir
-      output_template_in_target File.join(testing_framework.to_s, 'helper.rb'),
-                                File.join(test_dir, test_helper_filename)
-      output_template_in_target File.join(testing_framework.to_s, 'flunking.rb'),
-                                File.join(test_dir, test_filename)
-
+        mkdir_in_target           test_dir
+        output_template_in_target File.join(testing_framework.to_s, 'helper.rb'),
+                                  File.join(test_dir, test_helper_filename)
+        output_template_in_target File.join(testing_framework.to_s, 'flunking.rb'),
+                                  File.join(test_dir, test_filename)
+      end
 
       if testing_framework == :rspec
         output_template_in_target File.join(testing_framework.to_s, '.rspec'),
