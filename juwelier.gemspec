@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Fred Mitchell", "Josh Nichols", "Yusuke Murata"]
-  s.date = "2016-10-07"
+  s.date = "2016-10-10"
   s.description = "Simple and opinionated helper for creating Rubygem projects on GitHub"
   s.email = ["fred.mitchell@gmx.de", "fred.mitchell@gmx.com", "info@muratayusuke.com"]
   s.executables = ["juwelier"]
@@ -217,7 +217,6 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<redgreen>, [">= 0"])
       s.add_runtime_dependency(%q<test-construct>, [">= 0"])
       s.add_runtime_dependency(%q<coveralls>, [">= 0"])
-      s.add_runtime_dependency(%q<juwelier>, [">= 0"])
       s.add_runtime_dependency(%q<test-unit>, [">= 0"])
       s.add_development_dependency(%q<rake>, [">= 0"])
       s.add_development_dependency(%q<git>, [">= 1.2.5"])
@@ -241,7 +240,6 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<redgreen>, [">= 0"])
       s.add_development_dependency(%q<test-construct>, [">= 0"])
       s.add_development_dependency(%q<coveralls>, [">= 0"])
-      s.add_development_dependency(%q<juwelier>, [">= 0"])
       s.add_development_dependency(%q<test-unit>, [">= 0"])
     else
       s.add_dependency(%q<rake>, [">= 0"])
@@ -266,7 +264,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<redgreen>, [">= 0"])
       s.add_dependency(%q<test-construct>, [">= 0"])
       s.add_dependency(%q<coveralls>, [">= 0"])
-      s.add_dependency(%q<juwelier>, [">= 0"])
       s.add_dependency(%q<test-unit>, [">= 0"])
       s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<git>, [">= 1.2.5"])
@@ -290,7 +287,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<redgreen>, [">= 0"])
       s.add_dependency(%q<test-construct>, [">= 0"])
       s.add_dependency(%q<coveralls>, [">= 0"])
-      s.add_dependency(%q<juwelier>, [">= 0"])
       s.add_dependency(%q<test-unit>, [">= 0"])
     end
   else
@@ -316,7 +312,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<redgreen>, [">= 0"])
     s.add_dependency(%q<test-construct>, [">= 0"])
     s.add_dependency(%q<coveralls>, [">= 0"])
-    s.add_dependency(%q<juwelier>, [">= 0"])
     s.add_dependency(%q<test-unit>, [">= 0"])
     s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<git>, [">= 1.2.5"])
@@ -340,7 +335,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<redgreen>, [">= 0"])
     s.add_dependency(%q<test-construct>, [">= 0"])
     s.add_dependency(%q<coveralls>, [">= 0"])
-    s.add_dependency(%q<juwelier>, [">= 0"])
     s.add_dependency(%q<test-unit>, [">= 0"])
   end
 end
