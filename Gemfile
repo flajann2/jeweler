@@ -29,13 +29,6 @@ group :test do
   gem 'coveralls', :require => false
 end
 
-# yo dawg, i herd u lieked juwelier
-group :xzibit do
-  # steal a page from bundler's gemspec:
-  # add this directory as juwelier, in order to bundle exec juwelier and use the current working directory
-  gem 'juwelier', :path => '.'
-end
-
 group :debug do
   gem 'test-unit'
 end

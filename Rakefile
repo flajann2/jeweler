@@ -17,6 +17,7 @@ rescue Bundler::BundlerError => e
 end
 
 require 'rake'
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
 require 'juwelier'
 
 Juwelier::Tasks.new do |gem|
