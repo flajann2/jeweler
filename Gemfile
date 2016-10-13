@@ -5,7 +5,7 @@ gem "git", ">= 1.2.5"
 gem "nokogiri", ">= 1.5.10"
 gem "github_api"
 gem "highline", ">= 1.6.15"
-gem "bundler", ">= 1.0"
+gem "bundler", ">= 1.13"
 gem "rdoc"
 gem "builder"
 gem "semver"
@@ -27,13 +27,6 @@ group :test do
   gem "redgreen"
   gem "test-construct"
   gem 'coveralls', :require => false
-end
-
-# yo dawg, i herd u lieked juwelier
-group :xzibit do
-  # steal a page from bundler's gemspec:
-  # add this directory as juwelier, in order to bundle exec juwelier and use the current working directory
-  gem 'juwelier', :path => '.'
 end
 
 group :debug do
