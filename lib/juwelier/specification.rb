@@ -69,14 +69,15 @@ class Juwelier
 
         if File.exist?('Gemfile')
           require 'bundler'
-          Bundler.require(:default, :runtime).each do |dependency|
-            self.add_dependency dependency.name, *dependency.requirement.as_list
+          bundler_runtime = Bundler.load
+          bundler_dependencies_for(bundler_runtime, :default, :runtime).each do |dependency|
+            add_dependency dependency.name, *dependency.requirement.as_list
           end
-          Bundler.require(:development).each do |dependency|
-            self.add_development_dependency dependency.name, *dependency.requirement.as_list
+          bundler_dependencies_for(bundler_runtime, :development).each do |dependency|
+            add_development_dependency dependency.name, *dependency.requirement.as_list
           end
         end
-
+        
       end
     end
 
@@ -88,8 +89,20 @@ class Juwelier
       end
     end
 
-  private
-
+    private
+    
+    # Backported (or rather forward-ported) from Bunder::Runtime#dependencies_for.
+    # This method was available until Bundler 1.13, and then removed. We need it
+    # to be able to tell which gems are listed in the Gemfile without loading
+    # those gems first.
+    def bundler_dependencies_for(bundler_runtime, *groups)
+      if groups.empty?
+        bundler_runtime.dependencies
+      else
+        bundler_runtime.dependencies.select {|d| (groups & d.groups).any? }
+      end
+    end
+    
     def blank?(value)
       value.nil? || value.empty?
     end

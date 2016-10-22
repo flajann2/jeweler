@@ -1,3 +1,7 @@
+# juwelier 2.1.3, 2016-10-22
+  * Forward ported patches from Jewler 2.1.2
+  * Updated dependencies
+
 # juwelier 2.1.0, 2016-02-06
 
  * Forked from the unmaintained Jeweler
