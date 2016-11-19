@@ -1,5 +1,5 @@
 <%= project_name %>
-==========================
+===================
 
 Description goes here.
 

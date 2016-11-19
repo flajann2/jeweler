@@ -13,7 +13,10 @@
 
   [[https://travis-ci.org/flajann2/juwelier][[[https://travis-ci.org/flajann2/juwelier.png]]]]
   [[https://coveralls.io/r/flajann2/juwelier][[[https://coveralls.io/repos/flajann2/juwelier/badge.png]]]]
-  [[https://www.versioneye.com/ruby/juwelier/2.0.0][[[https://www.versioneye.com/ruby/juwelier/2.0.0/badge.png]]]]
+  [[https://www.versioneye.com/ruby/juwelier/2.2.1][[[https://www.versioneye.com/ruby/juwelier/2.2.1/badge.png]]]]1
+
+  (NOTE: If you see the aboved lines malformed, it is because of a bug in the formatting tool, not
+  in the Orgmode syntax, which is as specified.)
 
   "Juwelier" is pronounced "you-ve-LEER" (with German inflection! :))
 
@@ -357,14 +360,15 @@ The Juwelier Rake means you can define your own namespaces, tasks, or
 use third party Rake libraries without cause for concern.
 
 ** Release Notes
-   | Version |       Date | Notes                                      |
-   |---------+------------+--------------------------------------------|
-   |   2.1.3 | 2016-11-19 | Problems with --semver, --required-version |
+   | Version |       Date | Notes                                                                         |
+   |---------+------------+-------------------------------------------------------------------------------|
+   |   2.2.0 | 2016-11-19 | Bugs with --semver fixed, new options for using .org and .markdown for README |
+   |   2.1.3 | 2016-11-19 | Problems with --semver, --required-version                                    |
 
 ** Known Issues
-   |       Date | Issue |
-   |------------+-------|
-   | 2016-11-19 |       |
+   |       Date | Issue                                                                                          |
+   |------------+------------------------------------------------------------------------------------------------|
+   | 2016-11-19 | On generation of the Markdown, the initial title does not linefeed before the header sequence. |
 
 ** Contributing to
 
