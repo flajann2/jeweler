@@ -1,3 +1,8 @@
+				For the latest updates, please see README.org. There you will find the
+				changelog Release Notes, and Known Issues. This file will
+				no longer be used.
+				
+				
 # juwelier 2.1.3, 2016-10-22
   * Forward ported patches from Jewler 2.1.2
   * Updated dependencies
