@@ -133,7 +133,6 @@ class Juwelier
             self[:create_repo] = true
           end
 
-
           o.separator ""
 
           o.on('--yard', 'use yard for documentation') do
@@ -143,6 +142,8 @@ class Juwelier
           o.on('--rdoc', 'use rdoc for documentation') do
             self[:documentation_framework] = :rdoc
           end
+          
+          o.separator ""
           
           o.on('--org', 'use Orgmode for the readme') do
             self[:readme_format] = :org
@@ -156,6 +157,10 @@ class Juwelier
             self[:show_version] = true
           end
 
+          o.on('--pry', 'set up pry debug suite') do
+            self[:use_pry] = true
+          end
+          
           o.on_tail('-h', '--help', 'display this help and exit') do
             self[:show_help] = true
           end

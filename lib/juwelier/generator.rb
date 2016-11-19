@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'git'
 require 'github_api'
 require 'highline/import'
@@ -105,6 +106,7 @@ class Juwelier
       self.should_use_semver      = options[:use_semver]
       self.require_ruby_version   = options[:use_required_version]
       self.should_create_bin      = options[:create_bin]
+      self.should_use_pry         = options[:use_pry]
       self.use_readme_format      = options[:readme_format]
 
       development_dependencies << ["cucumber", ">= 0"] if should_use_cucumber
@@ -115,6 +117,15 @@ class Juwelier
 
       development_dependencies << ["reek", "~> 1.2.8"] if should_use_reek
       development_dependencies << ["roodi", "~> 2.1.0"] if should_use_roodi
+
+      development_dependencies += [
+        ["pry",                "~> 0"],
+        ["pry-byebug",         "~> 3"],
+        ["pry-doc",            "~> 0"],
+        ["pry-remote",         "~> 0"],
+        ["pry-rescue",         "~> 1"],
+        ["pry-stack_explorer", "~> 0"],
+      ] if should_use_pry
       
       production_dependencies << ["semver", "~> 1.0.1"] if should_use_semver
 
