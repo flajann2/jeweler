@@ -356,6 +356,16 @@ friendship doesn't interfere with typical Rake operations.
 The Juwelier Rake means you can define your own namespaces, tasks, or
 use third party Rake libraries without cause for concern.
 
+** Release Notes
+   | Version |       Date | Notes                                      |
+   |---------+------------+--------------------------------------------|
+   |   2.1.3 | 2016-11-19 | Problems with --semver, --required-version |
+
+** Known Issues
+   |       Date | Issue |
+   |------------+-------|
+   | 2016-11-19 |       |
+
 ** Contributing to
 
 -  Check out the latest master to make sure the feature hasn't been
