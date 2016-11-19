@@ -55,7 +55,7 @@ class Juwelier
                   :should_setup_rubyforge, :should_use_reek, :should_use_roodi,
                   :development_dependencies, :production_dependencies,
                   :options, :require_ruby_version, :should_create_bin,
-                  :git_remote
+                  :git_remote, :use_readme_format
 
     def initialize(options = {})
       self.options = options
