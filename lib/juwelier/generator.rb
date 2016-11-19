@@ -105,6 +105,7 @@ class Juwelier
       self.should_use_semver      = options[:use_semver]
       self.require_ruby_version   = options[:use_required_version]
       self.should_create_bin      = options[:create_bin]
+      self.use_readme_format      = options[:readme_format]
 
       development_dependencies << ["cucumber", ">= 0"] if should_use_cucumber
 
@@ -201,7 +202,7 @@ class Juwelier
       output_template_in_target 'Rakefile'
       output_template_in_target 'Gemfile' if should_use_bundler
       output_template_in_target 'LICENSE.txt'
-      output_template_in_target 'README.rdoc'
+      output_template_in_target "README.#{use_readme_format}"
       output_template_in_target '.document'
 
       mkdir_in_target           lib_dir

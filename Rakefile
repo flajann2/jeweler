@@ -23,7 +23,7 @@ require 'juwelier'
 Juwelier::Tasks.new do |gem|
   gem.name = "juwelier"
   gem.version = s_version
-  gem.required_ruby_version = '>= 2.0'
+  gem.required_ruby_version = '>= 2.2.2'
   gem.homepage = "http://github.com/flajann2/juwelier"
   gem.summary = "Powerful and Opinionated tool for creating and managing RubyGem projects"
   gem.description = "Simple and opinionated helper for creating Rubygem projects on GitHub"

@@ -9,6 +9,7 @@ class Juwelier
         @orig_args = args.clone
         self[:testing_framework]       = :shoulda
         self[:documentation_framework] = :rdoc
+        self[:readme_format]           = :rdoc
         self[:use_bundler]             = true
 
         self[:user_name]       = ENV['GIT_AUTHOR_NAME']  || ENV['GIT_COMMITTER_NAME']  || git_config['user.name']
@@ -141,6 +142,14 @@ class Juwelier
 
           o.on('--rdoc', 'use rdoc for documentation') do
             self[:documentation_framework] = :rdoc
+          end
+          
+          o.on('--org', 'use Orgmode for the readme') do
+            self[:readme_format] = :org
+          end
+          
+          o.on('--markdown', 'use Markdown for the readme') do
+            self[:readme_format] = :markdown
           end
 
           o.on('-v', '--version', 'show version') do

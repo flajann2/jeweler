@@ -16,4 +16,3 @@ Description goes here.
 
 Copyright (c) <%= Time.now.year %> <%= user_name %>. See LICENSE.txt for
 further details.
-
