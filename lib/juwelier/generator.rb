@@ -208,6 +208,10 @@ class Juwelier
       mkdir_in_target           lib_dir
       touch_in_target           File.join(lib_dir, lib_filename)
 
+      if should_use_semver
+        output_template_in_target '.semver'
+      end
+      
       if should_create_bin
         mkdir_in_target           bin_dir
         touch_in_target           File.join(bin_dir, bin_filename)
