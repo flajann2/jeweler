@@ -12,7 +12,7 @@ Juwelier::Tasks.new do |gem|
   gem.version = s_version
 <% end %>
 <% if require_ruby_version %>
-  gem.required_ruby_version = '>= <% require_ruby_version %>'
+  gem.required_ruby_version = '>= <%= require_ruby_version %>'
 <% end %>
 
 <% if should_setup_rubyforge %>
