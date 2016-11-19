@@ -3,13 +3,7 @@
 require 'rubygems'
 <%= render_template 'bundler_setup.erb' %>
 require 'rake'
-<% if should_use_semver %>
-require 'semver'
-
-def s_version
-  SemVer.find.format "%M.%m.%p%s"
-end
-<% end %>
+<%= render_template 'semver_tasks.erb' %>
 
 <%= render_template 'juwelier_tasks.erb' %>
 

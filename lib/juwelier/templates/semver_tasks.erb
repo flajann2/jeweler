@@ -1,0 +1,8 @@
+<% if should_use_semver %>
+
+require 'semver'
+
+def s_version
+  SemVer.find.format "%M.%m.%p%s"
+end
+<% end %>
