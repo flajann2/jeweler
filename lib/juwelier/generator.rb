@@ -56,7 +56,7 @@ class Juwelier
                   :should_setup_rubyforge, :should_use_reek, :should_use_roodi,
                   :development_dependencies, :production_dependencies,
                   :options, :require_ruby_version, :should_create_bin,
-                  :git_remote, :use_readme_format
+                  :git_remote, :use_readme_format, :should_use_pry
 
     def initialize(options = {})
       self.options = options
@@ -114,19 +114,18 @@ class Juwelier
       development_dependencies << ["bundler", "~> 1.0"]
       development_dependencies << ["juwelier", "~> #{Juwelier::Version::STRING}"]
       development_dependencies << ["simplecov", ">= 0"]
-
+      
       development_dependencies << ["reek", "~> 1.2.8"] if should_use_reek
       development_dependencies << ["roodi", "~> 2.1.0"] if should_use_roodi
-
-      development_dependencies += [
-        ["pry",                "~> 0"],
-        ["pry-byebug",         "~> 3"],
-        ["pry-doc",            "~> 0"],
-        ["pry-remote",         "~> 0"],
-        ["pry-rescue",         "~> 1"],
-        ["pry-stack_explorer", "~> 0"],
-      ] if should_use_pry
       
+      development_dependencies <<
+        ["pry",                "~> 0"] <<
+        ["pry-byebug",         "~> 3"] <<
+        ["pry-doc",            "~> 0"] <<
+        ["pry-remote",         "~> 0"] <<
+        ["pry-rescue",         "~> 1"] <<
+        ["pry-stack_explorer", "~> 0"] if should_use_pry
+                                         
       production_dependencies << ["semver", "~> 1.0.1"] if should_use_semver
 
       self.user_name       = options[:user_name]
