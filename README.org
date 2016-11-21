@@ -13,7 +13,7 @@
 
   [[https://travis-ci.org/flajann2/juwelier][[[https://travis-ci.org/flajann2/juwelier.png]]]]
   [[https://coveralls.io/r/flajann2/juwelier][[[https://coveralls.io/repos/flajann2/juwelier/badge.png]]]]
-  [[https://www.versioneye.com/ruby/juwelier/2.2.1][[[https://www.versioneye.com/ruby/juwelier/2.2.1/badge.png]]]]1
+  [[https://www.versioneye.com/ruby/juwelier/2.2.1][[[https://www.versioneye.com/ruby/juwelier/2.2.1/badge.png]]]]
 
   (NOTE: If you see the aboved lines malformed, it is because of a bug in the formatting tool, not
   in the Orgmode syntax, which is as specified.)
