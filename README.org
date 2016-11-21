@@ -42,6 +42,13 @@
 
   As you know, "Juwelier" is "Jeweler" in German. Since I have made
   Germany my new home, it only seemed approporiate.
+** Hot Ideas
+*** Merging Jeweler and Juwelier
+    This just occured to me -- we simply use metaprorgamming to use "Jeweler" 
+    or "Juwelier" in the generated code. All else would be the same. So the
+    name of the script that ran would be captured and encoded by the script
+    itself, and then used throughout the generation. That way, all can
+    be happy.
 
 ** Hello, world
 
