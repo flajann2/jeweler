@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["Fred Mitchell".freeze, "Josh Nichols".freeze, "Yusuke Murata".freeze]
-  s.date = "2016-12-26"
+  s.date = "2016-12-27"
   s.description = "Simple and opinionated helper for creating Rubygem projects on GitHub".freeze
   s.email = ["fred.mitchell@gmx.de".freeze, "fred.mitchell@gmx.com".freeze, "info@muratayusuke.com".freeze]
   s.executables = ["juwelier".freeze]
@@ -209,7 +209,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<bundler>.freeze, [">= 1.13"])
       s.add_runtime_dependency(%q<rdoc>.freeze, [">= 0"])
       s.add_runtime_dependency(%q<builder>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<semver>.freeze, [">= 0"])
+      s.add_runtime_dependency(%q<semver2>.freeze, [">= 0"])
       s.add_runtime_dependency(%q<psych>.freeze, ["~> 2.2"])
       s.add_development_dependency(%q<yard>.freeze, [">= 0.8.5"])
       s.add_development_dependency(%q<bluecloth>.freeze, [">= 0"])
@@ -224,7 +224,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<bundler>.freeze, [">= 1.13"])
       s.add_dependency(%q<rdoc>.freeze, [">= 0"])
       s.add_dependency(%q<builder>.freeze, [">= 0"])
-      s.add_dependency(%q<semver>.freeze, [">= 0"])
+      s.add_dependency(%q<semver2>.freeze, [">= 0"])
       s.add_dependency(%q<psych>.freeze, ["~> 2.2"])
       s.add_dependency(%q<yard>.freeze, [">= 0.8.5"])
       s.add_dependency(%q<bluecloth>.freeze, [">= 0"])
@@ -240,7 +240,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bundler>.freeze, [">= 1.13"])
     s.add_dependency(%q<rdoc>.freeze, [">= 0"])
     s.add_dependency(%q<builder>.freeze, [">= 0"])
-    s.add_dependency(%q<semver>.freeze, [">= 0"])
+    s.add_dependency(%q<semver2>.freeze, [">= 0"])
     s.add_dependency(%q<psych>.freeze, ["~> 2.2"])
     s.add_dependency(%q<yard>.freeze, [">= 0.8.5"])
     s.add_dependency(%q<bluecloth>.freeze, [">= 0"])
