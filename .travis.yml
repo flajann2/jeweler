@@ -2,7 +2,6 @@ language: ruby
 before_install:
   - gem install bundler # need more up-to-date bundler to match Gemfile's
 rvm:
-  - 2.1.10
   - 2.2.6
   - 2.3.3
   - 2.4.0
