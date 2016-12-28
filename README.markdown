@@ -28,7 +28,7 @@ the origial Jeweler up-to-date with the latest Ruby releases.
  a migration option, but in the meantime, you may wish to
  run this bash script from the root directory of your project:
 
-```
+```bash
 for f in $(grep -irl jeweler *)
 do
   sed -i 's/jeweler/juwelier/g' $f
@@ -115,7 +115,7 @@ on `origin`) and release the gem.
 
 It feels good to release code. Do it, do it often. But before that, bump the version. Then release it. There's a few ways to update the version:
 
-```
+```bash
 # version:write like before
 $ rake version:write MAJOR=0 MINOR=3 PATCH=0
 
@@ -139,7 +139,7 @@ If you've been following along so far, your gem is just a blank slate. You're go
 
 You can customize your gem by updating your `Rakefile`. With a newly generated project, it will look something like this:
 
-```
+```ruby
 require 'juwelier'
 Juwelier::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
@@ -187,7 +187,7 @@ The quickest way to add more files is to `git add` them. Juwelier uses your git 
 
 If you need to tweak the files, that's cool. Juwelier populates `gem.files` as a `Rake::FileList`. It's like a normal array, except you can `include` and `exclude` file globs:
 
-```
+```ruby
 gem.files.exclude 'tmp' # exclude temporary directory
 gem.files.include 'lib/foo/bar.rb' # explicitly include lib/foo/bar.rb
 ```
@@ -204,7 +204,7 @@ Dependencies let you define other gems that your gem needs to function. `gem ins
 
 This will ensure a version of `nokogiri` is installed, but it doesn't require anything more than that. You can provide extra args to be more specific:
 
-```
+```ruby
 gem.add_dependency 'nokogiri', '= 1.2.1' # exactly version 1.2.1
 gem.add_dependency 'nokogiri', '>= 1.2.1' # greater than or equal to 1.2.1, ie, 1.2.1, 1.2.2, 1.3.0, 2.0.0, etc
 gem.add_dependency 'nokogiri', '>= 1.2.1', '< 1.3.0' # greater than or equal to 1.2.1, but less than 1.3.0
@@ -231,7 +231,7 @@ We discussed earlier how to bump the version. The rake tasks are really just con
 
 A common pattern is to have this in a version constant in your library. This is convenient, because users of the library can query the version they are using at runtime.
 
-```
+```ruby
 # in lib/foo/version.rb
 class Foo
   module Version
@@ -245,7 +245,7 @@ class Foo
 end
 ```
 
-```
+```ruby
 # in Rakefile
 Juwelier  require 'juwelier'
 require './lib/foo/version.rb'
