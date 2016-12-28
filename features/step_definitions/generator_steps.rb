@@ -110,7 +110,7 @@ end
 Then /^a directory named '(.*)' is created$/ do |directory|
   directory = File.join(@working_dir, directory)
 
-  assert File.exists?(directory), "#{directory} did not exist"
+  assert File.exist?(directory), "#{directory} did not exist"
   assert File.directory?(directory), "#{directory} is not a directory"
 end
 
@@ -124,14 +124,14 @@ end
 Then /^a file named '(.*)' is created$/ do |file|
   file = File.join(@working_dir, file)
 
-  assert File.exists?(file), "#{file} expected to exist, but did not"
+  assert File.exist?(file), "#{file} expected to exist, but did not"
   assert File.file?(file), "#{file} expected to be a file, but is not"
 end
 
 Then /^a file named '(.*)' is not created$/ do |file|
   file = File.join(@working_dir, file)
 
-  assert ! File.exists?(file), "#{file} expected to not exist, but did"
+  assert ! File.exist?(file), "#{file} expected to not exist, but did"
 end
 
 Then /^a sane '.gitignore' is created$/ do

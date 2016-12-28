@@ -470,7 +470,7 @@ class Juwelier
           deleted { options[:deleted] }
           changed { options[:changed] }
         end
-        
+
       end
     end
   end

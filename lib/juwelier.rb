@@ -159,7 +159,7 @@ class Juwelier
       base_dir = File.expand_path(self.base_dir || ".")
     end
     return nil if base_dir==File.dirname("/")
-    return base_dir if File.exists?(File.join(base_dir, '.git'))
+    return base_dir if File.exist?(File.join(base_dir, '.git'))
     return git_base_dir(base_dir)
   end    
 
@@ -168,7 +168,7 @@ class Juwelier
   end
 
   def version_file_exists?
-    File.exists?(@version_helper.plaintext_path) || File.exists?(@version_helper.yaml_path)
+    File.exist?(@version_helper.plaintext_path) || File.exist?(@version_helper.yaml_path)
   end
 
   def expects_version_file?
