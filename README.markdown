@@ -247,9 +247,9 @@ end
 
 ```ruby
 # in Rakefile
-Juwelier  require 'juwelier'
+require 'juwelier'
 require './lib/foo/version.rb'
-::Tasks.new do |gem|
+Juwelier::Tasks.new do |gem|
   # snip
   gem.version = Foo::Version::STRING
 end
