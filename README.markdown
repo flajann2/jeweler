@@ -157,29 +157,19 @@ It's crucial to understand the `gem` object is just a Gem::Specification. You ca
 
 ### Project information
 
-`gem.name = "whatwhatwhat"`
+A short description about the configuration in the previous item.
 
-Every gem has a name. Among other things, the gem name is how you are able to `gem install` it. [Reference](http://guides.rubygems.org/specification-reference/#name)
+- **gem.name**: Every gem has a name. Among other things, the gem name is how you are able to `gem install` it. [Reference](http://guides.rubygems.org/specification-reference/#name)
 
-`gem.summary = %Q{TODO: one-line summary of your gem}`
+- **gem.summary**: This is a one line summary of your gem. This is displayed, for example, when you use `gem list --details` or view it on [rubygems.org](http://rubygems.org/gems/).
 
-This is a one line summary of your gem. This is displayed, for example, when you use `gem list --details` or view it on [rubygems.org](http://rubygems.org/gems/).
+- **gem.description**: Description is a longer description. Scholars ascertain that knowledge of where the description is used was lost centuries ago.
 
-`gem.description = %Q{TODO: longer description of your gem}`
+- **gem.email**: This should be a way to get a hold of you regarding the gem.
 
-Description is a longer description. Scholars ascertain that knowledge of where the description is used was lost centuries ago.
+- **gem.homepage**: The homepage should have more information about your gem. The juwelier generator guesses this based on the assumption your code lives on [GitHub](http://github.com/), using your Git configuration to find your GitHub username. This is displayed by `gem list --details` and on rubygems.org.
 
-`gem.email = "fred.mitchell@gmx.com"`
-
-This should be a way to get a hold of you regarding the gem.
-
-`gem.homepage = "http://github.com/flajann2/whatwhatwhat"`
-
-The homepage should have more information about your gem. The juwelier generator guesses this based on the assumption your code lives on [GitHub](http://github.com/), using your Git configuration to find your GitHub username. This is displayed by `gem list --details` and on rubygems.org.
-
-`gem.authors = ["Joshua Nichols"]`
-
-Hey, this is you, the author (or me in this case). The `juwelier` generator also guesses this from your Git configuration. This is displayed by `gem list --details` and on rubygems.org.
+- **gem.authors**: Hey, this is you, the author (or me in this case). The `juwelier` generator also guesses this from your Git configuration. This is displayed by `gem list --details` and on rubygems.org.
 
 ### Files
 
@@ -219,7 +209,7 @@ Executables let your gem install shell commands. Just put any executable scripts
 
 When you need more finely grained control over it, you can set it yourself:
 
-`gem.executables = ['foo'] # note, it's the file name relative to `bin/`, not the project root`
+`gem.executables = ['foo'] # note, it's the file name relative to bin/, not the project root`
 
 ### Versioning
 
