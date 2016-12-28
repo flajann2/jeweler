@@ -24,6 +24,7 @@ group :test do
   gem "shoulda"
   gem "mhennemeyer-output_catcher"
   gem "rr", ">= 1.0.4"
+  gem "test-unit-rr", "~> 1.0"
   gem "mocha"
   gem "redgreen"
   gem "test-construct"

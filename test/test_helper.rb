@@ -1,4 +1,6 @@
 require 'test/unit'
+require 'rr'
+require 'test/unit/rr'
 require 'rubygems'
 
 require 'bundler'
@@ -15,7 +17,6 @@ end
 
 require 'rake'
 require 'shoulda'
-require 'rr'
 #require 'redgreen'
 require 'construct'
 require 'git'
@@ -38,7 +39,6 @@ class RubyForgeStub
 end
 
 class Test::Unit::TestCase
-  include RR::Adapters::TestUnit unless include?(RR::Adapters::TestUnit)
   include Construct::Helpers
 
   def tmp_dir
