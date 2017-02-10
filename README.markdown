@@ -10,6 +10,10 @@ maintaining both repos for a while, and eventually converge them to one. In
 the mean time, all new features shall be added to Juwelier, while keeping
 the origial Jeweler up-to-date with the latest Ruby releases.
 
+ALSO NOTE that I am transistioning the README to the orgmode format. As such,
+the Markdown version may be out of date, especially with the release notes
+and changelogs. Please refer to it instead.
+
 [![Build Status](https://travis-ci.org/flajann2/juwelier.png)](https://travis-ci.org/flajann2/juwelier)
 [![Coverage Status](https://coveralls.io/repos/flajann2/juwelier/badge.png)](https://coveralls.io/r/flajann2/juwelier)
 [![Dependency Status](https://www.versioneye.com/ruby/juwelier/2.0.0/badge.png)](https://www.versioneye.com/ruby/juwelier/2.0.0)

@@ -369,15 +369,17 @@ use third party Rake libraries without cause for concern.
 ** Release Notes
    | Version |       Date | Notes                                                                                                       |
    |---------+------------+-------------------------------------------------------------------------------------------------------------|
+   |   2.3.5 | 2017-02-10 | Revving Semver to be Semver2                                                                                |
    |   2.2.3 | 2016-11-21 | Psych bug fixed                                                                                             |
    |   2.2.2 | 2016-11-19 | Added support for pry -- includes pry, pry-byebug, pry-doc, pry-remote, pry-rescue. and pry-stack_explorer. |
    |   2.2.0 | 2016-11-19 | Bugs with --semver fixed, new options for using .org and .markdown for README                               |
    |   2.1.3 | 2016-11-19 | Problems with --semver, --required-version                                                                  |
 
 ** Known Issues
-   |       Date | Issue                                                                                          |
-   |------------+------------------------------------------------------------------------------------------------|
-   | 2016-11-19 | On generation of the Markdown, the initial title does not linefeed before the header sequence. |
+   |       Date | Issue                                                                                                    |
+   |------------+----------------------------------------------------------------------------------------------------------|
+   | 2017-02-10 | Orgmode and Markdown sync issue. They are out of sync for various reasons, and this must be ameorilated. |
+   | 2016-11-19 | On generation of the Markdown, the initial title does not linefeed before the header sequence.           |
 
 ** Contributing to
 

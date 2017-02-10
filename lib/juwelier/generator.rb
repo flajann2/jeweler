@@ -126,7 +126,7 @@ class Juwelier
         ["pry-rescue",         "~> 1"] <<
         ["pry-stack_explorer", "~> 0"] if should_use_pry
                                          
-      production_dependencies << ["semver", "~> 1.0.1"] if should_use_semver
+      production_dependencies << ["semver2", "~> 3"] if should_use_semver
 
       self.user_name       = options[:user_name]
       self.user_email      = options[:user_email]
