@@ -21,7 +21,7 @@ Given /^I use the juwelier command to generate the "([^"]+)" project in the work
 end
 
 Given /^"([^"]+)" does not exist$/ do |file|
-  assert ! File.exists?(File.join(@working_dir, file))
+  assert ! File.exist?(File.join(@working_dir, file))
 end
 
 When /^I run "([^"]+)" in "([^"]+)"$/ do |command, directory|

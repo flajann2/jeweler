@@ -39,7 +39,7 @@ class Juwelier
       end
 
       def read_yaml
-        if File.exists?(yaml_path)
+        if File.exist?(yaml_path)
           YAML.load_file(yaml_path)
         else
           raise VersionYmlError, "#{yaml_path} does not exist!"
@@ -86,12 +86,12 @@ class Juwelier
     def initialize(base_dir)
       self.base_dir = base_dir
 
-      if File.exists?(yaml_path)
+      if File.exist?(yaml_path)
         extend YamlExtension
         parse_yaml
       else
         extend PlaintextExtension
-        if File.exists?(plaintext_path)
+        if File.exist?(plaintext_path)
           parse_plaintext
         end
       end

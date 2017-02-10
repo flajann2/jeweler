@@ -165,10 +165,10 @@ class TestVersionHelper < Test::Unit::TestCase
 
       should_have_version 0, 0, 1
       should "not create VERSION.yml" do
-        assert ! File.exists?(File.join(VERSION_TMP_DIR, 'VERSION.yml'))
+        assert ! File.exist?(File.join(VERSION_TMP_DIR, 'VERSION.yml'))
       end
       should "not create VERSION" do
-        assert ! File.exists?(File.join(VERSION_TMP_DIR, 'VERSION'))
+        assert ! File.exist?(File.join(VERSION_TMP_DIR, 'VERSION'))
       end
 
       context "outputting" do
@@ -177,7 +177,7 @@ class TestVersionHelper < Test::Unit::TestCase
         end
 
         should "create VERSION" do
-          assert File.exists?(File.join(VERSION_TMP_DIR, 'VERSION'))
+          assert File.exist?(File.join(VERSION_TMP_DIR, 'VERSION'))
         end
 
         context "re-reading VERSION" do

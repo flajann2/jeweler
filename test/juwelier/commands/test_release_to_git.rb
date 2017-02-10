@@ -102,7 +102,7 @@ class Juwelier
           end
 
           should 'raise error' do
-            assert_raises RuntimeError, /try commiting/i do
+            assert_raises RuntimeError do
               @command.run
             end
           end
@@ -264,7 +264,7 @@ class Juwelier
           deleted { options[:deleted] }
           changed { options[:changed] }
         end
-        
+
       end
     end
   end

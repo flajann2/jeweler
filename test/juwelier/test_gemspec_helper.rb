@@ -30,7 +30,7 @@ class TestGemspecHelper < Test::Unit::TestCase
     end
 
     should "create gemspec file" do
-      assert File.exists?(@helper.path)
+      assert File.exist?(@helper.path)
     end
 
     should "make valid spec" do

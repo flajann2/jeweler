@@ -201,7 +201,7 @@ class Juwelier
   private
 
     def create_files
-      unless File.exists?(target_dir) || File.directory?(target_dir)
+      unless File.exist?(target_dir) || File.directory?(target_dir)
         FileUtils.mkdir target_dir
       else
         raise FileInTheWay, "The directory #{target_dir} already exists, aborting. Maybe move it out of the way before continuing?"
