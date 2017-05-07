@@ -369,6 +369,7 @@ use third party Rake libraries without cause for concern.
 ** Release Notes
    | Version |       Date | Notes                                                                                                       |
    |---------+------------+-------------------------------------------------------------------------------------------------------------|
+   |   2.4.0 | 2017-05-07 | Support for Rusty Gems                                                                                      |
    |   2.3.5 | 2017-02-10 | Revving Semver to be Semver2                                                                                |
    |   2.2.3 | 2016-11-21 | Psych bug fixed                                                                                             |
    |   2.2.2 | 2016-11-19 | Added support for pry -- includes pry, pry-byebug, pry-doc, pry-remote, pry-rescue. and pry-stack_explorer. |

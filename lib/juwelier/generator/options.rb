@@ -81,6 +81,10 @@ class Juwelier
             self[:create_bin] = v
           end
 
+          o.on('--rusty [NAME]', 'create a gem using Rust') do |v|
+            self[:be_rusty] = v
+          end
+
           o.on('--cucumber', 'generate cucumber stories in addition to the other tests') do
             self[:use_cucumber] = true
           end

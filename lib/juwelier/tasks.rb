@@ -27,7 +27,7 @@ class Juwelier
   #     gem.email = "fred.mitchell@gmx.com"
   #     gem.homepage = "http://github.com/flajann2/juwelier"
   #     gem.description = "Simple and opinionated helper for creating RubyGem projects on GitHub"
-  #     gem.authors = ["Josh Nichols"]
+  #     gem.authors = ["Fred Mitchell"]
   #   end
   #
   # The block variable gem is actually a Gem::Specification, so you can

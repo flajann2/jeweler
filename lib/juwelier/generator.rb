@@ -56,7 +56,8 @@ class Juwelier
                   :should_setup_rubyforge, :should_use_reek, :should_use_roodi,
                   :development_dependencies, :production_dependencies,
                   :options, :require_ruby_version, :should_create_bin,
-                  :git_remote, :use_readme_format, :should_use_pry
+                  :git_remote, :use_readme_format, :should_use_pry,
+                  :should_be_rusty
 
     def initialize(options = {})
       self.options = options
@@ -106,6 +107,7 @@ class Juwelier
       self.should_use_semver      = options[:use_semver]
       self.require_ruby_version   = options[:use_required_version]
       self.should_create_bin      = options[:create_bin]
+      self.should_be_rusty        = options[:be_rusty]
       self.should_use_pry         = options[:use_pry]
       self.use_readme_format      = options[:readme_format]
 
@@ -233,10 +235,12 @@ class Juwelier
                                   File.join(test_dir, test_filename)
       end
 
+      if should_be_rusty
+      end
+      
       if testing_framework == :rspec
         output_template_in_target File.join(testing_framework.to_s, '.rspec'),
                                   '.rspec'
-
       end
 
       if should_use_cucumber
