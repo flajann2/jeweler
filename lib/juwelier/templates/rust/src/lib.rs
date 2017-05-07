@@ -37,7 +37,7 @@ pub extern "C" fn hello_world(json: &str, count: u32) ->  Result<u32, Error> {
 /// Here we must free strings from Rust when we are done
 /// with them.
 #[no_mangle]
-pub extern "C" fn rust_free(c_ptr: *mut libc::c_void) {
+pub extern fn rust_free(c_ptr: *mut libc::c_void) {
     unsafe {
         libc::free(c_ptr);
     }
