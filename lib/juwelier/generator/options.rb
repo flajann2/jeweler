@@ -81,7 +81,7 @@ class Juwelier
             self[:create_bin] = v
           end
 
-          o.on('--rusty [NAME]', 'create a gem using Rust') do |v|
+          o.on('--[no-]rusty', 'create a gem using Rust') do |v|
             self[:be_rusty] = v
           end
 

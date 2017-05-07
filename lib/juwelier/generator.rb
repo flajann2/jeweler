@@ -129,7 +129,7 @@ class Juwelier
         ["pry-stack_explorer", "~> 0"] if should_use_pry
                                          
       production_dependencies << ["semver2", "~> 3"] if should_use_semver
-      production_dependencies << [] if should_be_rusty
+      production_dependencies << ['ffi', '~> 1'] if should_be_rusty
       
       self.user_name       = options[:user_name]
       self.user_email      = options[:user_email]
@@ -157,13 +157,8 @@ class Juwelier
       self.project_name.split(/[-_]/).collect{|each| each.capitalize }.join
     end
 
-    def lib_filename
-      "#{project_name}.rb"
-    end
-
-    def bin_filename
-      "#{should_create_bin}"
-    end
+    def lib_filename ; "#{project_name}.rb" ; end
+    def bin_filename ; "#{should_create_bin}" ; end
 
     def require_name
       self.project_name
@@ -215,7 +210,12 @@ class Juwelier
       output_template_in_target '.document'
 
       mkdir_in_target           lib_dir
-      touch_in_target           File.join(lib_dir, lib_filename)
+      unless should_be_rusty
+        touch_in_target           File.join(lib_dir, lib_filename)
+      else
+        output_template_in_target File.join(lib_dir, 'rustygem.rb'),
+                                  File.join(lib_dir, lib_filename)
+      end
 
       if should_use_semver
         output_template_in_target '.semver'
