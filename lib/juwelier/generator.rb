@@ -129,7 +129,8 @@ class Juwelier
         ["pry-stack_explorer", "~> 0"] if should_use_pry
                                          
       production_dependencies << ["semver2", "~> 3"] if should_use_semver
-
+      production_dependencies << [] if should_be_rusty
+      
       self.user_name       = options[:user_name]
       self.user_email      = options[:user_email]
       self.homepage        = options[:homepage]
@@ -172,13 +173,10 @@ class Juwelier
       self.project_name.gsub('-', '_')
     end
 
-    def lib_dir
-      'lib'
-    end
-
-    def bin_dir
-      'bin'
-    end
+    def lib_dir      ; 'lib'      ; end
+    def bin_dir      ; 'bin'      ; end    
+    def rust_dir     ; 'rust'     ; end
+    def rust_src_dir ; rust_dir + '/src' ; end
 
     def feature_filename
       "#{project_name}.feature"
@@ -209,7 +207,6 @@ class Juwelier
         raise FileInTheWay, "The directory #{target_dir} already exists, aborting. Maybe move it out of the way before continuing?"
       end
 
-
       output_template_in_target '.gitignore'
       output_template_in_target 'Rakefile'
       output_template_in_target 'Gemfile' if should_use_bundler
@@ -236,6 +233,12 @@ class Juwelier
       end
 
       if should_be_rusty
+        mkdir_in_target rust_dir
+        output_template_in_target File.join(rust_dir, 'Cargo.toml')
+        output_template_in_target File.join(rust_dir, 'extconf.rb')
+        output_template_in_target File.join(rust_dir, 'Makefile')
+        mkdir_in_target rust_src_dir
+        output_template_in_target File.join(rust_src_dir, 'lib.rs')
       end
       
       if testing_framework == :rspec
