@@ -20,16 +20,27 @@ pub struct HelloWorld {
     world: String
 }
 
+/// Super-simple test
+#[no_mangle]
+pub extern "C" fn simple_test(s: &str, i: u32) ->  u32 {
+    println!("got a string of {}", s);
+    println!("got an integer of {}", i);
+    i + 10
+}
+
 /// This is an example of passing complex objects
 /// from Ruby to Rust with strong type checking as JSON
 #[no_mangle]
 pub extern "C" fn hello_world(json: &str, count: u32) ->  Result<u32, Error> {
     let hw: HelloWorld = from_str(json)?;
-    
+
+    println!("hello_world called with {:?} to be printed {} times.", hw, count);
+
     // We simply want to show how to pass primitives as well
     for i in 0..count {
-        println!("{}: vec: {:?}", i, hw);
+        println!("{}: hw: {:?}", i, hw);
     }
+
     // return one less than the count given
     Ok(count - 1)
 }
