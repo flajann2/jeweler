@@ -3,7 +3,7 @@ require 'git'
 require 'github_api'
 require 'highline/import'
 require 'erb'
-
+require 'kamelcase'
 require 'net/http'
 require 'uri'
 
@@ -154,9 +154,13 @@ class Juwelier
     end
 
     def constant_name
-      self.project_name.split(/[-_]/).collect{|each| each.capitalize }.join
+      self.project_name.camel
     end
 
+    def extension_name
+      "lib#{self.project_name.snake}.so"
+    end
+    
     def lib_filename ; "#{project_name}.rb" ; end
     def bin_filename ; "#{should_create_bin}" ; end
 
