@@ -10,6 +10,7 @@ gem "rdoc"
 gem "builder"
 gem "semver2"
 gem "psych", "~> 2.2"
+gem "kamelcase", "~> 0"
 
 group :development do
   gem "yard", ">= 0.8.5"

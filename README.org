@@ -366,9 +366,57 @@ friendship doesn't interfere with typical Rake operations.
 The Juwelier Rake means you can define your own namespaces, tasks, or
 use third party Rake libraries without cause for concern.
 
+** New Features
+*** Rusty Gems Support (highly experimental)
+    Beginning with version 2.4.0, we now have integration
+    with Rust, so you are able to write Rust-enabled gems.
+    Your users will have to have Rust installed on their
+    systems, but this is easy to do.
+
+    This interface currently uses FFI, and I don't have all
+    the bugs worked out, so use at your own risk (for now).
+**** Example
+     First, create your Rusty Gem:
+     #+begin_src bash
+     juwelier --semver --rusty foo
+     #+end_src
+
+     Next, cd into the foo directory and run bundle
+     and attempt to run the test:
+     #+begin_src bash
+     bundle
+     ruby lib/foo.rb
+     #+end_src
+
+     The test attempt should fail, since we have not built
+     the Rust extension yet. Do so by doing the following:
+     #+begin_src
+     cd rust
+     make
+     cd ..
+     #+end_src
+
+     And then attempt to run the test again:
+     #+begin_src bash
+     ruby lib/foo.rb
+     #+end_src
+
+     That should work. Now install the gem locally with:
+     #+begin_src bash
+     rake gemspec
+     rake install
+     #+end_src
+
+     And that should install your foo gem cleanly.
+
+     As of now, this feature is extremely experimental, but
+     if you should be able to use this as a nice scafford
+     to do your own Rusty Gems. I will improve this later.
+
 ** Release Notes
    | Version |       Date | Notes                                                                                                       |
    |---------+------------+-------------------------------------------------------------------------------------------------------------|
+   |   2.4.0 | 2017-05-09 | Support for Rusty Gems (highly experimental)                                                                |
    |   2.3.5 | 2017-02-10 | Revving Semver to be Semver2                                                                                |
    |   2.2.3 | 2016-11-21 | Psych bug fixed                                                                                             |
    |   2.2.2 | 2016-11-19 | Added support for pry -- includes pry, pry-byebug, pry-doc, pry-remote, pry-rescue. and pry-stack_explorer. |

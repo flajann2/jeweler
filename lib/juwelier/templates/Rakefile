@@ -4,7 +4,5 @@ require 'rubygems'
 <%= render_template 'bundler_setup.erb' %>
 require 'rake'
 <%= render_template 'semver_tasks.erb' %>
-
 <%= render_template 'juwelier_tasks.erb' %>
-
 <%= render_template 'other_tasks.erb' %>

@@ -3,7 +3,7 @@ require 'git'
 require 'github_api'
 require 'highline/import'
 require 'erb'
-
+require 'kamelcase'
 require 'net/http'
 require 'uri'
 
@@ -56,7 +56,8 @@ class Juwelier
                   :should_setup_rubyforge, :should_use_reek, :should_use_roodi,
                   :development_dependencies, :production_dependencies,
                   :options, :require_ruby_version, :should_create_bin,
-                  :git_remote, :use_readme_format, :should_use_pry
+                  :git_remote, :use_readme_format, :should_use_pry,
+                  :should_be_rusty
 
     def initialize(options = {})
       self.options = options
@@ -106,6 +107,7 @@ class Juwelier
       self.should_use_semver      = options[:use_semver]
       self.require_ruby_version   = options[:use_required_version]
       self.should_create_bin      = options[:create_bin]
+      self.should_be_rusty        = options[:be_rusty]
       self.should_use_pry         = options[:use_pry]
       self.use_readme_format      = options[:readme_format]
 
@@ -127,7 +129,8 @@ class Juwelier
         ["pry-stack_explorer", "~> 0"] if should_use_pry
                                          
       production_dependencies << ["semver2", "~> 3"] if should_use_semver
-
+      production_dependencies << ['ffi', '~> 1'] if should_be_rusty
+      
       self.user_name       = options[:user_name]
       self.user_email      = options[:user_email]
       self.homepage        = options[:homepage]
@@ -151,16 +154,15 @@ class Juwelier
     end
 
     def constant_name
-      self.project_name.split(/[-_]/).collect{|each| each.capitalize }.join
+      self.project_name.camel
     end
 
-    def lib_filename
-      "#{project_name}.rb"
+    def extension_name
+      "lib#{self.project_name.snake}.so"
     end
-
-    def bin_filename
-      "#{should_create_bin}"
-    end
+    
+    def lib_filename ; "#{project_name}.rb" ; end
+    def bin_filename ; "#{should_create_bin}" ; end
 
     def require_name
       self.project_name
@@ -170,13 +172,10 @@ class Juwelier
       self.project_name.gsub('-', '_')
     end
 
-    def lib_dir
-      'lib'
-    end
-
-    def bin_dir
-      'bin'
-    end
+    def lib_dir      ; 'lib'      ; end
+    def bin_dir      ; 'bin'      ; end    
+    def rust_dir     ; 'rust'     ; end
+    def rust_src_dir ; rust_dir + '/src' ; end
 
     def feature_filename
       "#{project_name}.feature"
@@ -207,7 +206,6 @@ class Juwelier
         raise FileInTheWay, "The directory #{target_dir} already exists, aborting. Maybe move it out of the way before continuing?"
       end
 
-
       output_template_in_target '.gitignore'
       output_template_in_target 'Rakefile'
       output_template_in_target 'Gemfile' if should_use_bundler
@@ -216,7 +214,12 @@ class Juwelier
       output_template_in_target '.document'
 
       mkdir_in_target           lib_dir
-      touch_in_target           File.join(lib_dir, lib_filename)
+      unless should_be_rusty
+        touch_in_target           File.join(lib_dir, lib_filename)
+      else
+        output_template_in_target File.join(lib_dir, 'rustygem.rb'),
+                                  File.join(lib_dir, lib_filename)
+      end
 
       if should_use_semver
         output_template_in_target '.semver'
@@ -233,10 +236,18 @@ class Juwelier
                                   File.join(test_dir, test_filename)
       end
 
+      if should_be_rusty
+        mkdir_in_target rust_dir
+        output_template_in_target File.join(rust_dir, 'Cargo.toml')
+        output_template_in_target File.join(rust_dir, 'extconf.rb')
+        output_template_in_target File.join(rust_dir, 'Makefile')
+        mkdir_in_target rust_src_dir
+        output_template_in_target File.join(rust_src_dir, 'lib.rs')
+      end
+      
       if testing_framework == :rspec
         output_template_in_target File.join(testing_framework.to_s, '.rspec'),
                                   '.rspec'
-
       end
 
       if should_use_cucumber

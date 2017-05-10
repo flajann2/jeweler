@@ -15,6 +15,11 @@ Juwelier::Tasks.new do |gem|
   gem.required_ruby_version = '>= <%= require_ruby_version %>'
 <% end %>
 
+<% if should_be_rusty %>
+  # Rusty Gem
+  gem.extensions = Dir['rust/extconf.rb']
+<% end %>
+
 <% if should_setup_rubyforge %>
   gem.rubyforge_project = "<%= project_name %>"
 <% end %>
