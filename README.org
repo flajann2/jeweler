@@ -1,35 +1,49 @@
-* Juwelier: Craft the perfect RubyGem for Ruby 2.3.x and Beyond
+* Juwelier: Craft the perfect RubyGem for Ruby 2.3.x and Beyond    :TOC_5_gh:
+   - [[#intro][Intro]]
+   - [[#migrating-from-jeweler][Migrating from Jeweler]]
+   - [[#hot-ideas][Hot Ideas]]
+     - [[#merging-jeweler-and-juwelier][Merging Jeweler and Juwelier]]
+   - [[#hello-world][Hello, world]]
+     - [[#more-juwelier-options][More =juwelier= options]]
+   - [[#hello-rake-tasks][Hello, rake tasks]]
+     - [[#releasing][Releasing]]
+     - [[#version-bumping][Version bumping]]
+   - [[#customizing-your-gem][Customizing your gem]]
+     - [[#project-information][Project information]]
+   - [[#juwelier-files][Juwelier# Files]]
+     - [[#dependencies][Dependencies]]
+   - [[#juwelier-executables][Juwelier# Executables]]
+     - [[#versioning][Versioning]]
+   - [[#juwelier-rake-tasks][Juwelier# Rake tasks]]
+   - [[#new-features][New Features]]
+     - [[#rusty-gems-support][Rusty Gems Support]]
+       - [[#example][Example]]
+   - [[#release-notes][Release Notes]]
+   - [[#known-issues][Known Issues]]
+   - [[#contributing-to][Contributing to]]
+   - [[#copyright][Copyright]]
 
-  Provides the noble ruby developer with two primary features:
+** Intro
+   Provides the noble ruby developer with three primary features:
 
-  -  a library or managing and releasing RubyGem projects
-  -  a scaffold generator for starting new RubyGem projects
+   - a library or managing and releasing RubyGem projects
+   - a scaffold generator for starting new RubyGem projects
+   - a means to write a RubyGem in Rust (creating a RustyGem)
 
-  PLEASE NOTE that I have recently taken over the original Jeweler and
-  will be maintaining both repos for a while, and eventually converge them
-  to one. In the mean time, all new features shall be added to Juwelier,
-  while keeping the origial Jeweler up-to-date with the latest Ruby
-  releases.
+   PLEASE NOTE that I have taken over the original Jeweler and will
+   be maintaining both repos for a while, and will eventually merge them
+   to one. In the mean time, all new features shall be added to Juwelier,
+   while keeping the origial Jeweler up-to-date with the latest Ruby
+   releases. When the merge takes place, it will be in a manner that
+   will not break either the Jeweler or the Juwelier camps.
+   
+   "Juwelier" is pronounced "you-ve-LEER" (with German inflection! :))
 
-  [[https://travis-ci.org/flajann2/juwelier][[[https://travis-ci.org/flajann2/juwelier.png]]]]
-  [[https://coveralls.io/r/flajann2/juwelier][[[https://coveralls.io/repos/flajann2/juwelier/badge.png]]]]
-  [[https://www.versioneye.com/ruby/juwelier/2.2.1][[[https://www.versioneye.com/ruby/juwelier/2.2.1/badge.png]]]]
-
-  (NOTE: If you see the aboved lines malformed, it is because of a bug in the formatting tool, not
-  in the Orgmode syntax, which is as specified.)
-
-  "Juwelier" is pronounced "you-ve-LEER" (with German inflection! :))
-
-  Note that his has been forked from the old Jeweler by Josh Nichols due
-  to lack of maintenance. I need this to work alread with the latest Ruby,
-  so I've taken it over. All is cool because sometimes we move on and
-  loose interest. I wish to thank Josh and others who were behind the
-  original Jeweler for creating this awesome tool.
-
-  Note that if you have a preexisting project created with Jeweler, you
-  may have some issues. Eventally I will provide a migration option, but
-  in the meantime, you may wish to run this bash script from the root
-  directory of your project:
+** Migrating from Jeweler
+   Note that if you have a preexisting project created with Jeweler, you
+   may have some issues. Eventally I will provide a migration option, but
+   in the meantime, you may wish to run this bash script from the root
+   directory of your project:
 
   #+BEGIN_SRC bash
     for f in $(grep -irl jeweler *)
@@ -40,8 +54,6 @@
     bundle update
   #+END_SRC
 
-  As you know, "Juwelier" is "Jeweler" in German. Since I have made
-  Germany my new home, it only seemed approporiate.
 ** Hot Ideas
 *** Merging Jeweler and Juwelier
     This just occured to me -- we simply use metaprorgamming to use "Jeweler" 
