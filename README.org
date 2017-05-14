@@ -367,7 +367,7 @@ The Juwelier Rake means you can define your own namespaces, tasks, or
 use third party Rake libraries without cause for concern.
 
 ** New Features
-*** Rusty Gems Support (highly experimental)
+*** Rusty Gems Support
     Beginning with version 2.4.0, we now have integration
     with Rust, so you are able to write Rust-enabled gems.
     Your users will have to have Rust installed on their
@@ -376,6 +376,11 @@ use third party Rake libraries without cause for concern.
     This interface currently uses FFI, and I don't have all
     the bugs worked out, so use at your own risk (for now).
 **** Example
+     The example code generated illustrates how to pass
+     strings to Rust, and also how to pass data structures
+     to Rust as JSON (highly recommended) and have it
+     reformed into Rust structures in a typesafe manner.
+
      First, create your Rusty Gem:
      #+begin_src bash
      juwelier --semver --rusty foo
@@ -416,7 +421,8 @@ use third party Rake libraries without cause for concern.
 ** Release Notes
    | Version |       Date | Notes                                                                                                       |
    |---------+------------+-------------------------------------------------------------------------------------------------------------|
-   |   2.4.0 | 2017-05-09 | Support for Rusty Gems (highly experimental)                                                                |
+   |   2.4.4 | 2017-05-14 | Fixed Rusty interfacing example and the segfault it was generating.                                         |
+   |   2.4.0 | 2017-05-09 | Support for Rusty Gems                                                                                      |
    |   2.3.5 | 2017-02-10 | Revving Semver to be Semver2                                                                                |
    |   2.2.3 | 2016-11-21 | Psych bug fixed                                                                                             |
    |   2.2.2 | 2016-11-19 | Added support for pry -- includes pry, pry-byebug, pry-doc, pry-remote, pry-rescue. and pry-stack_explorer. |

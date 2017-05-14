@@ -1,0 +1,9 @@
+---
+:major: 2
+:minor: 4
+<<<<<<< HEAD
+:patch: 1
+=======
+:patch: 4
+>>>>>>> feature/rusty
+:special: ''
