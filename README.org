@@ -10,11 +10,11 @@
      - [[#version-bumping][Version bumping]]
    - [[#customizing-your-gem][Customizing your gem]]
      - [[#project-information][Project information]]
-   - [[#juwelier-files][Juwelier# Files]]
+   - [[#juwelier-files][Juwelier Files]]
      - [[#dependencies][Dependencies]]
-   - [[#juwelier-executables][Juwelier# Executables]]
+   - [[#juwelier-executables][Juwelier Executables]]
      - [[#versioning][Versioning]]
-   - [[#juwelier-rake-tasks][Juwelier# Rake tasks]]
+   - [[#juwelier-rake-tasks][Juwelier Rake tasks]]
    - [[#new-features][New Features]]
      - [[#rusty-gems-support][Rusty Gems Support]]
        - [[#example][Example]]
@@ -268,7 +268,7 @@ Hey, this is you, the author (or me in this case). The =juwelier=
 generator also guesses this from your Git configuration. This is
 displayed by =gem list --details= and on rubygems.org.
 
-** Juwelier# Files
+** Juwelier Files
 
 ThJuweliere quickest way to add more files is to =git add= them. uses
 your Git repository to populate your gem's files by including added and
@@ -320,18 +320,18 @@ except until the point that 2.0.0 comes out and totally breaks backwards
 the API. That's when it's good to use =~> 1.2.1=, which requires any
 version in the =1.2= family, starting with =1.2.1=.
 
-** Juwelier# Executables
+** Juwelier Executables
 
-Executables let your gem install shell commands. Just put any executable
-scripts in the =bin/= directory, make sure they are added using =git=,
-and will take care of the rest.
+   Executables let your gem install shell commands. Just put any executable
+   scripts in the =bin/= directory, make sure they are added using =git=,
+   and will take care of the rest.
+   
+   When you need more finely grained control over it, you can set it
+   yourself:
 
-When you need more finely grained control over it, you can set it
-yourself:
-
-#+BEGIN_EXAMPLE
+   #+BEGIN_EXAMPLE
     gem.executables = ['foo'] # note, it's the file name relative to `bin/`, not the project root
-#+END_EXAMPLE
+   #+END_EXAMPLE
 
 *** Versioning
 
@@ -370,7 +370,7 @@ they are using at runtime.
 Juwelier require 'juwelier' require './lib/foo/version.rb' ::Tasks.new
 do |gem| # snip gem.version = Foo::Version::STRING end
 
-** Juwelier# Rake tasks
+** Juwelier Rake tasks
 
 lives inside of Rake. As a result, they are dear friends. But, that
 friendship doesn't interfere with typical Rake operations.
