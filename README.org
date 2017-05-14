@@ -414,10 +414,6 @@ use third party Rake libraries without cause for concern.
 
      And that should install your foo gem cleanly.
 
-     As of now, this feature is extremely experimental, but
-     if you should be able to use this as a nice scafford
-     to do your own Rusty Gems. I will improve this later.
-
 ** Release Notes
    | Version |       Date | Notes                                                                                                       |
    |---------+------------+-------------------------------------------------------------------------------------------------------------|
