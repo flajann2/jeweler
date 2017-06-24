@@ -429,7 +429,7 @@ use third party Rake libraries without cause for concern.
 ** Release Notes
    | Version |       Date | Notes                                                                                                       |
    |---------+------------+-------------------------------------------------------------------------------------------------------------|
-   |   2.4.6 | 2017-06-24 | Bundle update to allow the latest dependencies.                                                             |
+   |   2.4.7 | 2017-06-24 | Bundle update to allow the latest dependencies.                                                             |
    |   2.4.5 | 2017-05-14 | Fixed Rusty interfacing example and the segfault it was generating.                                         |
    |   2.4.0 | 2017-05-09 | Support for Rusty Gems                                                                                      |
    |   2.3.5 | 2017-02-10 | Revving Semver to be Semver2                                                                                |
