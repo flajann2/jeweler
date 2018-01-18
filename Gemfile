@@ -28,7 +28,7 @@ group :test do
   gem "test-unit-rr"#, "~> 1.0"
   gem "mocha"
   gem "redgreen"
-  gem "test-construct"
+  gem "test_construct"
   gem 'coveralls', :require => false
 end
 
