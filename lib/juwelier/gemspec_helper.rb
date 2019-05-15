@@ -49,6 +49,8 @@ class Juwelier
       data = self.to_ruby
       parsed_gemspec = nil
       Thread.new { parsed_gemspec = eval("$SAFE = 1\n#{data}", binding, path) }.join
+      # Need to reset $SAFE to 0 as it is process global since ruby 2.6
+      $SAFE = 0 if $SAFE == 1
       parsed_gemspec
     end
 
