@@ -154,7 +154,7 @@ class Juwelier
     end
 
     def constant_name
-      self.project_name.camel
+      self.project_name.underscore.camel
     end
 
     def extension_name
