@@ -17,7 +17,7 @@ require 'active_support'
 require 'test/unit/assertions'
 World(Test::Unit::Assertions)
 
-require 'construct'
+require 'test_construct'
 World(Construct::Helpers)
 
 def yank_task_info(content, task)
