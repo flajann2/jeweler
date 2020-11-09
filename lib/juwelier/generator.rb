@@ -24,12 +24,12 @@ class Juwelier
   class NoGitHubUser < StandardError
   end
   class GitInitFailed < StandardError
-  end    
+  end
   class GitRepoCreationFailed < StandardError
   end
 
   # Generator for creating a juwelier-enabled project
-  class Generator    
+  class Generator
     require 'juwelier/generator/options'
     require 'juwelier/generator/application'
 
@@ -50,7 +50,7 @@ class Juwelier
 
     attr_accessor :target_dir, :user_name, :user_email, :summary, :homepage,
                   :description, :project_name, :github_username,
-                  :repo, :should_create_remote_repo, 
+                  :repo, :should_create_remote_repo,
                   :testing_framework, :documentation_framework,
                   :should_use_cucumber, :should_use_bundler, :should_use_semver,
                   :should_setup_rubyforge, :should_use_reek, :should_use_roodi,
@@ -116,10 +116,10 @@ class Juwelier
       development_dependencies << ["bundler", "~> 1.0"]
       development_dependencies << ["juwelier", "~> #{Juwelier::Version::STRING}"]
       development_dependencies << ["simplecov", ">= 0"]
-      
+
       development_dependencies << ["reek", "~> 1.2.8"] if should_use_reek
       development_dependencies << ["roodi", "~> 2.1.0"] if should_use_roodi
-      
+
       development_dependencies <<
         ["pry",                "~> 0"] <<
         ["pry-byebug",         "~> 3"] <<
@@ -127,14 +127,14 @@ class Juwelier
         ["pry-remote",         "~> 0"] <<
         ["pry-rescue",         "~> 1"] <<
         ["pry-stack_explorer", "~> 0"] if should_use_pry
-                                         
+
       production_dependencies << ["semver2", "~> 3"] if should_use_semver
       production_dependencies << ['ffi', '~> 1'] if should_be_rusty
-      
+
       self.user_name       = options[:user_name]
       self.user_email      = options[:user_email]
       self.homepage        = options[:homepage]
-      
+
       self.git_remote      = options[:git_remote]
 
       raise NoGitUserName unless self.user_name
@@ -160,7 +160,7 @@ class Juwelier
     def extension_name
       "lib#{self.project_name.snake}.so"
     end
-    
+
     def lib_filename ; "#{project_name}.rb" ; end
     def bin_filename ; "#{should_create_bin}" ; end
 
@@ -173,7 +173,7 @@ class Juwelier
     end
 
     def lib_dir      ; 'lib'      ; end
-    def bin_dir      ; 'bin'      ; end    
+    def bin_dir      ; 'bin'      ; end
     def rust_dir     ; 'rust'     ; end
     def rust_src_dir ; rust_dir + '/src' ; end
 
@@ -224,7 +224,7 @@ class Juwelier
       if should_use_semver
         output_template_in_target '.semver'
       end
-      
+
       if should_create_bin
         mkdir_in_target           bin_dir
         touch_in_target           File.join(bin_dir, bin_filename)
@@ -244,7 +244,7 @@ class Juwelier
         mkdir_in_target rust_src_dir
         output_template_in_target File.join(rust_src_dir, 'lib.rs')
       end
-      
+
       if testing_framework == :rspec
         output_template_in_target File.join(testing_framework.to_s, '.rspec'),
                                   '.rspec'
@@ -326,7 +326,7 @@ class Juwelier
         end
       end
     end
-    
+
     def create_and_push_repo
       puts "Please provide your Github password to create the Github repository"
       begin

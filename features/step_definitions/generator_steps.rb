@@ -142,6 +142,7 @@ Then /^a sane '.gitignore' is created$/ do
   step "'.DS_Store' is ignored by git"
   step "'rdoc' is ignored by git"
   step "'pkg' is ignored by git"
+  step "'Gemfile.lock' is ignored by git"
 end
 
 Then /^'(.*)' is ignored by git$/ do |git_ignore|
@@ -356,7 +357,7 @@ end
 Then /^'Gemfile' has a development dependency on the current version of juwelier$/ do
   @gemfile_content ||= File.read(File.join(@working_dir, @name, 'Gemfile'))
   group_block = yank_group_info(@gemfile_content, 'development')
-  
+
   assert_match %Q{gem "juwelier", "~> #{Juwelier::Version::STRING}"}, group_block
 end
 
