@@ -1,10 +1,8 @@
-<%= project_name %>
-===================
+# <%= project_name %>
 
 Description goes here.
 
-Contributing to <%= project_name %>
-------------------------------------------
+## Contributing to <%= project_name %>
 
 -   Check out the latest master to make sure the feature hasn't been
     implemented or the bug hasn't been fixed yet.
@@ -20,8 +18,7 @@ Contributing to <%= project_name %>
     is fine, but please isolate to its own commit so I can cherry-pick
     around it.
 
-Copyright
----------
+## Copyright
 
 Copyright (c) <%= Time.now.year %> <%= user_name %>. See
 LICENSE.txt for further details.
