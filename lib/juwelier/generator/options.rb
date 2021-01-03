@@ -154,7 +154,7 @@ class Juwelier
           end
           
           o.on('--markdown', 'use Markdown for the readme') do
-            self[:readme_format] = :markdown
+            self[:readme_format] = :md
           end
 
           o.on('-v', '--version', 'show version') do
