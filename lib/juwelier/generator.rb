@@ -113,7 +113,7 @@ class Juwelier
 
       development_dependencies << ["cucumber", ">= 0"] if should_use_cucumber
 
-      development_dependencies << ["bundler", "~> 1.0"]
+      development_dependencies << ["bundler", ">= 1.0"]
       development_dependencies << ["juwelier", "~> #{Juwelier::Version::STRING}"]
       development_dependencies << ["simplecov", ">= 0"]
       
@@ -154,7 +154,7 @@ class Juwelier
     end
 
     def constant_name
-      self.project_name.camel
+      self.project_name.snake.camel
     end
 
     def extension_name
@@ -208,7 +208,10 @@ class Juwelier
 
       output_template_in_target '.gitignore'
       output_template_in_target 'Rakefile'
-      output_template_in_target 'Gemfile' if should_use_bundler
+      if should_use_bundler
+        output_template_in_target 'Gemfile'
+        system 'bundle install'
+      end
       output_template_in_target 'LICENSE.txt'
       output_template_in_target "README.#{use_readme_format}"
       output_template_in_target '.document'
