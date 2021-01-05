@@ -18,7 +18,7 @@ end
 require 'rake'
 require 'shoulda'
 #require 'redgreen'
-require 'construct'
+require 'test_construct'
 require 'git'
 require 'time'
 
@@ -39,7 +39,7 @@ class RubyForgeStub
 end
 
 class Test::Unit::TestCase
-  include Construct::Helpers
+  include TestConstruct::Helpers
 
   def tmp_dir
     TMP_DIR
@@ -117,7 +117,7 @@ class Test::Unit::TestCase
 
         if @command.respond_to? :repo
           @repo = Object.new
-          @command.repo = @repo 
+          @command.repo = @repo
         end
       end
 

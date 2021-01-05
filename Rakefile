@@ -30,7 +30,7 @@ Juwelier::Tasks.new do |gem|
   gem.license = "MIT"
   gem.authors = ["Fred Mitchell", "Josh Nichols", "Yusuke Murata"]
   gem.email = ["fred.mitchell@gmx.de", "fred.mitchell@gmx.com", "info@muratayusuke.com"]
-  gem.files.include %w(lib/juwelier/templates/.document lib/juwelier/templates/.gitignore)
+  gem.files.include %w(lib/juwelier/templates/.document lib/juwelier/templates/.gitignore lib/juwelier/templates/.ruby-version lib/juwelier/templates/.ruby-gemset)
 
   # dependencies defined in Gemfile
 end

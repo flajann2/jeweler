@@ -1,0 +1,2 @@
+<%= ENV['rvm_ruby_string'] %>
+

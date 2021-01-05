@@ -24,12 +24,12 @@ class Juwelier
   class NoGitHubUser < StandardError
   end
   class GitInitFailed < StandardError
-  end    
+  end
   class GitRepoCreationFailed < StandardError
   end
 
   # Generator for creating a juwelier-enabled project
-  class Generator    
+  class Generator
     require 'juwelier/generator/options'
     require 'juwelier/generator/application'
 
@@ -50,14 +50,15 @@ class Juwelier
 
     attr_accessor :target_dir, :user_name, :user_email, :summary, :homepage,
                   :description, :project_name, :github_username,
-                  :repo, :should_create_remote_repo, 
+                  :repo, :should_create_remote_repo,
                   :testing_framework, :documentation_framework,
                   :should_use_cucumber, :should_use_bundler, :should_use_semver,
                   :should_setup_rubyforge, :should_use_reek, :should_use_roodi,
+                  :should_use_rvm, :should_be_rusty, :should_use_pry,
                   :development_dependencies, :production_dependencies,
                   :options, :require_ruby_version, :should_create_bin,
-                  :git_remote, :use_readme_format, :should_use_pry,
-                  :should_be_rusty
+                  :git_remote, :use_readme_format
+                  
 
     def initialize(options = {})
       self.options = options
@@ -104,6 +105,7 @@ class Juwelier
       self.should_use_roodi       = options[:use_roodi]
       self.should_setup_rubyforge = options[:rubyforge]
       self.should_use_bundler     = options[:use_bundler]
+      self.should_use_rvm         = options[:use_rvm]
       self.should_use_semver      = options[:use_semver]
       self.require_ruby_version   = options[:use_required_version]
       self.should_create_bin      = options[:create_bin]
@@ -113,7 +115,7 @@ class Juwelier
 
       development_dependencies << ["cucumber", ">= 0"] if should_use_cucumber
 
-      development_dependencies << ["bundler", "~> 1.0"]
+      development_dependencies << ["bundler", ">= 1.0"]
       development_dependencies << ["juwelier", "~> #{Juwelier::Version::STRING}"]
       development_dependencies << ["simplecov", ">= 0"]
       
@@ -145,6 +147,7 @@ class Juwelier
 
     def run
       create_files
+      configure_project
       create_version_control
       $stdout.puts "Juwelier has prepared your gem in #{target_dir}"
       if should_create_remote_repo
@@ -154,7 +157,7 @@ class Juwelier
     end
 
     def constant_name
-      self.project_name.camel
+      self.project_name.snake.camel
     end
 
     def extension_name
@@ -173,7 +176,7 @@ class Juwelier
     end
 
     def lib_dir      ; 'lib'      ; end
-    def bin_dir      ; 'bin'      ; end    
+    def bin_dir      ; 'bin'      ; end
     def rust_dir     ; 'rust'     ; end
     def rust_src_dir ; rust_dir + '/src' ; end
 
@@ -212,6 +215,8 @@ class Juwelier
       output_template_in_target 'LICENSE.txt'
       output_template_in_target "README.#{use_readme_format}"
       output_template_in_target '.document'
+      output_template_in_target '.ruby-version' unless should_use_rvm == false
+      output_template_in_target '.ruby-gemset' if should_use_rvm
 
       mkdir_in_target           lib_dir
       unless should_be_rusty
@@ -297,6 +302,35 @@ class Juwelier
       $stdout.puts "\tcreate\t#{destination}"
     end
 
+    def configure_project
+      FileUtils.cd target_dir do
+        execute_command "bundle install"   if should_use_bundler
+        execute_command "rspec --init"     if testing_framework == :rspec
+      end
+    end
+    
+    # RVM function taken from https://rvm.io/workflow/scripting#scripting
+    RVM_FUNCTION = <<~SHELL_SCRIPT
+      # Load RVM into a shell session *as a function*
+      if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+        # First try to load from a user install
+        source "$HOME/.rvm/scripts/rvm"
+      elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+        # Then try to load from a root install
+        source "/usr/local/rvm/scripts/rvm"
+      fi
+    SHELL_SCRIPT
+    
+    def execute_command(command)
+      # check if not false because nil (default) should not count as false in this case
+      if should_use_rvm != false
+        rvm_command = "bash -c '#{RVM_FUNCTION}\ncd .\n#{command}'"
+        system rvm_command
+      else
+        system command
+      end
+    end
+    
     def create_version_control
       Dir.chdir(target_dir) do
         begin

@@ -24,7 +24,11 @@ test/jeweler/version_tmp
 test/version_tmp
 tmp
 
-# rbenv settings
-.ruby-version
+# rvm/rbenv settings
+/.ruby-version
+/.ruby-gemset
 
 Gemfile.lock
+
+# Gladiator (Glimmer Editor)
+.gladiator

@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["Fred Mitchell".freeze, "Josh Nichols".freeze, "Yusuke Murata".freeze]
-  s.date = "2018-01-18"
+  s.date = "2021-01-05"
   s.description = "Simple and opinionated helper for creating Rubygem projects on GitHub".freeze
   s.email = ["fred.mitchell@gmx.de".freeze, "fred.mitchell@gmx.com".freeze, "info@muratayusuke.com".freeze]
   s.executables = ["juwelier".freeze]
@@ -94,6 +94,8 @@ Gem::Specification.new do |s|
     "lib/juwelier/tasks.rb",
     "lib/juwelier/templates/.document",
     "lib/juwelier/templates/.gitignore",
+    "lib/juwelier/templates/.ruby-gemset",
+    "lib/juwelier/templates/.ruby-version",
     "lib/juwelier/templates/.semver",
     "lib/juwelier/templates/Gemfile",
     "lib/juwelier/templates/LICENSE.txt",
@@ -200,45 +202,29 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/flajann2/juwelier".freeze
   s.licenses = ["MIT".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 2.2.2".freeze)
-  s.rubygems_version = "2.7.3".freeze
+  s.rubygems_version = "3.1.4".freeze
   s.summary = "Powerful and Opinionated tool for creating and managing RubyGem projects".freeze
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
+  end
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rake>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<git>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<nokogiri>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<github_api>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<highline>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<bundler>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<rdoc>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<builder>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<semver2>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<psych>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<kamelcase>.freeze, ["~> 0"])
-      s.add_development_dependency(%q<yard>.freeze, [">= 0"])
-      s.add_development_dependency(%q<bluecloth>.freeze, [">= 0"])
-      s.add_development_dependency(%q<cucumber>.freeze, [">= 0"])
-      s.add_development_dependency(%q<simplecov>.freeze, [">= 0"])
-    else
-      s.add_dependency(%q<rake>.freeze, [">= 0"])
-      s.add_dependency(%q<git>.freeze, [">= 0"])
-      s.add_dependency(%q<nokogiri>.freeze, [">= 0"])
-      s.add_dependency(%q<github_api>.freeze, [">= 0"])
-      s.add_dependency(%q<highline>.freeze, [">= 0"])
-      s.add_dependency(%q<bundler>.freeze, [">= 0"])
-      s.add_dependency(%q<rdoc>.freeze, [">= 0"])
-      s.add_dependency(%q<builder>.freeze, [">= 0"])
-      s.add_dependency(%q<semver2>.freeze, [">= 0"])
-      s.add_dependency(%q<psych>.freeze, [">= 0"])
-      s.add_dependency(%q<kamelcase>.freeze, ["~> 0"])
-      s.add_dependency(%q<yard>.freeze, [">= 0"])
-      s.add_dependency(%q<bluecloth>.freeze, [">= 0"])
-      s.add_dependency(%q<cucumber>.freeze, [">= 0"])
-      s.add_dependency(%q<simplecov>.freeze, [">= 0"])
-    end
+  if s.respond_to? :add_runtime_dependency then
+    s.add_runtime_dependency(%q<rake>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<git>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<nokogiri>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<github_api>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<highline>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<bundler>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<rdoc>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<builder>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<semver2>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<psych>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<kamelcase>.freeze, ["~> 0"])
+    s.add_development_dependency(%q<yard>.freeze, [">= 0"])
+    s.add_development_dependency(%q<bluecloth>.freeze, [">= 0"])
+    s.add_development_dependency(%q<cucumber>.freeze, [">= 0"])
+    s.add_development_dependency(%q<simplecov>.freeze, [">= 0"])
   else
     s.add_dependency(%q<rake>.freeze, [">= 0"])
     s.add_dependency(%q<git>.freeze, [">= 0"])
