@@ -117,7 +117,7 @@ class Test::Unit::TestCase
 
         if @command.respond_to? :repo
           @repo = Object.new
-          @command.repo = @repo 
+          @command.repo = @repo
         end
       end
 

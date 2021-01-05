@@ -69,6 +69,10 @@ class Juwelier
             self[:use_bundler] = v
           end
 
+          o.on('--[no-]rvm', 'use RVM (Ruby enVironment Manager) for managing rubies/gemsets') do |v|
+            self[:use_rvm] = v
+          end
+
           o.on('--[no-]semver', 'use semver for managining gem version') do |v|
             self[:use_semver] = v
           end
